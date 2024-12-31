@@ -4,39 +4,96 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☄️</text></svg>">
     <meta name="description" content="About David Oks"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js">
     <style>
+        @font-face {
+            font-family: 'Lusitana';
+            src: url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&display=swap');
+        }
+
         body { 
             line-height: 1.4;
             font-size: 14px;
-            padding: 0 10px;
+            padding: 0;
+            margin: 0;
+            font-family: 'Lusitana', serif;
+        }
+        
+        .container {
+            display: flex;
+            max-width: 1200px;
             margin: 50px auto;
-            max-width: 650px;
-            font-family: Helvetica, Arial, sans-serif;
+            padding: 0 20px;
         }
         
         #maincontent {
-            max-width: 42em;
-            margin: 0 auto;
-            margin-top: 70px;
+            flex: 1;
+            max-width: 650px;
+            padding-right: 40px;
+        }
+        
+        .sidebar {
+            width: 200px;
+            padding-top: 70px;
+        }
+        
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            color: #666;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+        
+        .sidebar a:hover {
+            color: #000;
         }
         
         p {
             margin: 16px 0;
         }
+        
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                padding-top: 20px;
+            }
+            
+            #maincontent {
+                padding-right: 0;
+            }
+        }
     </style>
     <title>David Oks</title>
 </head>
 <body>
-<div id="maincontent">
-    <p>My name is David Oks.</p>
-    <p>I'm working on a stealth startup.</p>
-    <p>Before that, I worked at a quant hedge fund in New York.</p>
-    <p>Before that, I ran a <a href="https://en.wikipedia.org/wiki/The_Gravel_Institute">small nonprofit</a> and did <a href="https://www.palladiummag.com/author/david-oks/">foreign reporting</a> while studying at Oxford.</p>
-    <p>Before that, I ran a <a href="https://en.wikipedia.org/wiki/Mike_Gravel_2020_presidential_campaign">presidential campaign</a> while I was in high school.</p>
-    <p>I currently divide my time between California and New York.</p>
-    <p>You can email me at davideoks [at] gmail [dot] com.</p>
-    <a href="/books/" style="display: block; margin-top: 2em;">My Bookshelf</a>
+<div class="container">
+    <div id="maincontent">
+        <p>My name is David Oks.</p>
+        <p>I'm working on a stealth startup.</p>
+        <p>Before that, I worked at a quant hedge fund in New York.</p>
+        <p>Before that, I ran a <a href="https://en.wikipedia.org/wiki/The_Gravel_Institute">small nonprofit</a> and did <a href="https://www.palladiummag.com/author/david-oks/">foreign reporting</a> while studying at Oxford.</p>
+        <p>Before that, I ran a <a href="https://en.wikipedia.org/wiki/Mike_Gravel_2020_presidential_campaign">presidential campaign</a> while I was in high school.</p>
+        <p>I currently divide my time between California and New York.</p>
+        <p>You can email me at davideoks [at] gmail [dot] com.</p>
+    </div>
+    <div class="sidebar">
+        <a href="/books">Books</a>
+        <a href="/blog">Blog</a>
+    </div>
 </div>
 </body>
 </html>
