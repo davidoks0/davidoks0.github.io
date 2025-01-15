@@ -18,6 +18,7 @@
 
         .main-container {
             display: flex;
+            flex-direction: row-reverse;
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
@@ -25,7 +26,8 @@
 
         #menu {
             width: 200px;
-            padding-right: 40px;
+            padding-left: 40px;
+            text-align: right;
         }
 
         .title {
@@ -65,13 +67,14 @@
 
         @media (max-width: 900px) {
             .main-container {
-                flex-direction: column;
+                flex-direction: column-reverse;
             }
 
             #menu {
                 width: 100%;
-                padding-right: 0;
-                margin-bottom: 30px;
+                padding-left: 0;
+                margin-top: 30px;
+                text-align: left;
             }
 
             #menu ul {
