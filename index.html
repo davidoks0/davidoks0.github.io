@@ -4,113 +4,102 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌀</text></svg>">
     <meta name="description" content="About David Oks"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
     <style>
-        body { 
-            line-height: 1.6;
-            font-size: 18px;
+        body {
+            line-height: 1.5;
+            font-size: 16px;
             margin: 0;
             padding: 0;
-            font-family: 'Source Serif 4', Georgia, serif;
-            position: relative;
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            color: #24292e;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        
+
         .main-container {
             display: flex;
-            justify-content: center;
-            position: relative;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 40px 20px;
         }
-        
-        #maincontent {
-            width: 100%;
-            max-width: 650px;
-            padding: 0;
-            margin-left: -40px;
+
+        #menu {
+            width: 200px;
+            padding-right: 40px;
         }
-        
-        .sidebar {
-            position: fixed;
-            right: 40px;
-            top: 50px;
-            text-align: right;
-        }
-        
-        .sidebar a {
-            display: block;
-            text-decoration: none;
-            color: #0366d6;
-            margin-bottom: 15px;
+
+        .title {
             font-size: 18px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 20px;
         }
-        
-        .sidebar a:hover {
-            text-decoration: underline;
+
+        #menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
-        
-        p {
-            margin: 16px 0;
+
+        #menu li {
+            margin-bottom: 12px;
         }
-        
+
+        #content {
+            max-width: 650px;
+            flex-grow: 1;
+        }
+
         a {
             color: #0366d6;
             text-decoration: none;
         }
-        
+
         a:hover {
             text-decoration: underline;
         }
 
-        h1 {
-            font-size: 24px;
-            font-weight: normal;
-            margin-bottom: 1em;
-            font-family: 'Source Serif 4', Georgia, serif;
+        p {
+            margin: 16px 0;
         }
 
         @media (max-width: 900px) {
-            .sidebar {
-                position: static;
-                text-align: left;
-                margin-top: 40px;
-                margin-left: 20px;
-            }
-            
             .main-container {
                 flex-direction: column;
             }
-            
-            #maincontent {
-                margin-left: 0;
+
+            #menu {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+
+            #menu ul {
+                margin-top: 20px;
             }
         }
     </style>
-    
     <title>David Oks</title>
 </head>
 <body>
-<div class="main-container">
-    <div id="maincontent">
-        <p>My name is David Oks.</p>
-        <p>I&rsquo;m working on a stealth startup.</p>
-        <p>Before that, I worked at a quant hedge fund in New York.</p>
-        <p>Before that, I ran a <a href="https://en.wikipedia.org/wiki/The_Gravel_Institute">small nonprofit</a> and did <a href="https://www.palladiummag.com/author/david-oks/">foreign reporting</a> while studying at Oxford.</p>
-        <p>Before that, I ran a <a href="https://en.wikipedia.org/wiki/Mike_Gravel_2020_presidential_campaign">presidential campaign</a> while I was in high school.</p>
-        <p>I currently divide my time between California and New York.</p>
-        <p>You can email me at davideoks [at] gmail [dot] com.</p>
+    <div class="main-container">
+        <div id="menu">
+            <span class="title">David Oks</span>
+            <ul>
+                <li><a href="/">About</a></li>
+                <li><a href="/books">Books</a></li>
+                <li><a href="/blog">Blog</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <p>My name is David Oks.</p>
+            <p>I'm working on a stealth startup.</p>
+            <p>Before that, I worked at a quant hedge fund in New York.</p>
+            <p>Before that, I ran a <a href="https://en.wikipedia.org/wiki/The_Gravel_Institute">small nonprofit</a> and did <a href="https://www.palladiummag.com/author/david-oks/">foreign reporting</a> while studying at Oxford.</p>
+            <p>Before that, I ran a <a href="https://en.wikipedia.org/wiki/Mike_Gravel_2020_presidential_campaign">presidential campaign</a> while I was in high school.</p>
+            <p>I currently divide my time between California and New York.</p>
+            <p>You can email me at davideoks [at] gmail [dot] com.</p>
+        </div>
     </div>
-    <div class="sidebar">
-        <a href="/">About</a>
-        <a href="/books">Books</a>
-    </div>
-</div>
 </body>
 </html>
