@@ -4,90 +4,81 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌀</text></svg>">
     <meta name="description" content="David Oks's Bookshelf"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
     <style>
-        body { 
-            line-height: 1.6;
-            font-size: 18px;
+        body {
+            line-height: 1.5;
+            font-size: 16px;
             margin: 0;
             padding: 0;
-            font-family: 'Source Serif 4', Georgia, serif;
-            position: relative;
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            color: #24292e;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        
+
         .main-container {
             display: flex;
-            justify-content: center;
-            position: relative;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 40px 20px;
         }
-        
-        #maincontent {
-            width: 100%;
-            max-width: 650px;
-            padding: 0;
-            margin-left: -40px;
+
+        #menu {
+            width: 200px;
+            padding-right: 40px;
+            text-align: left;
         }
-        
-        .sidebar {
-            position: fixed;
-            right: 40px;
-            top: 50px;
-            text-align: right;
-        }
-        
-        .sidebar a {
-            display: block;
-            text-decoration: none;
-            color: #0366d6;
-            margin-bottom: 15px;
+
+        .title {
             font-size: 18px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 20px;
         }
-        
-        .sidebar a:hover {
-            text-decoration: underline;
+
+        #menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
-        
-        p {
-            margin: 16px 0;
+
+        #menu li {
+            margin-bottom: 12px;
         }
-        
+
+        #content {
+            max-width: 650px;
+            flex-grow: 1;
+        }
+
         a {
             color: #0366d6;
             text-decoration: none;
         }
-        
+
         a:hover {
             text-decoration: underline;
         }
 
+        p {
+            margin: 16px 0;
+        }
+
         h1 {
-            font-size: 24px;
-            font-weight: normal;
+            font-size: 20px;
+            font-weight: 600;
             margin-bottom: 1em;
-            font-family: Source Serif 4, Georgia, serif;
+            margin-top: 0;
         }
 
         .intro {
             margin-bottom: 2em;
         }
 
-        .booklist {
-            margin-top: 2em;
-        }
-
         .booklist ul {
             list-style-type: disc;
             padding-left: 1.5em;
-            line-height: 1.6;
+            margin-top: 0;
         }
 
         .booklist li {
@@ -95,126 +86,129 @@
         }
 
         @media (max-width: 900px) {
-            .sidebar {
-                position: static;
-                text-align: left;
-                margin-top: 40px;
-                margin-left: 20px;
-            }
-            
             .main-container {
                 flex-direction: column;
             }
-            
-            #maincontent {
-                margin-left: 0;
+
+            #menu {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 30px;
+                text-align: left;
+            }
+
+            #menu ul {
+                margin-top: 20px;
             }
         }
     </style>
-    
     <title>David Oks - Bookshelf</title>
 </head>
 <body>
-<div class="main-container">
-    <div id="maincontent">
-        <h1>Bookshelf</h1>
-        
-        <div class="intro">
-            <p>This is a running list of books I&rsquo;ve read since roughly the spring of 2023. Books that I particularly enjoyed, or at least thought were particularly interesting, are <b>bolded</b>.</p>
-        </div>
-
-        <div class="booklist">
+    <div class="main-container">
+        <div id="menu">
+            <span class="title">David Oks</span>
             <ul>
-                <li>The Grid, by Gretchen Bakke</li>
-                <li><b>The Brothers Karamazov</b>, by Fyodor Dostoevsky</li>
-                <li><b>Stoner</b>, by John Williams</li>
-                <li>The Unaccountability Machine, by Dan Davies</li>
-                <li>Submission, by Michel Houellebecq</li>
-                <li>The Destruction of the Bison, by Andrew Isenberg</li>
-                <li><b>Waiting for the Barbarians</b>, by J. M. Coetzee</li>
-                <li>The World for Sale, by Javier Blas and Jack Farchy</li>
-                <li>Fathers and Children, by Ivan Turgenev</li>
-                <li>The Bond King, by Mary Childs</li>
-                <li>The Dean of Shandong, by Edward A. Bell</li>
-                <li>Oceans of Grain, by Scott Reynolds Nelson</li>
-                <li>The Sense of an Ending, by Julian Barnes</li>
-                <li><b>Trade Wars are Class Wars</b>, by Matt Klein and Michael Pettis</li>
-                <li>American Foreign Policy and its Thinkers, by Perry Anderson</li>
-                <li><b>Conversations with Goethe</b>, by Johann Peter Eckermann</li>
-                <li>On the Natural History of Destruction, by W. G. Sebald</li>
-                <li>2666, by Roberto Bolaño</li>
-                <li>The Crying of Lot 49, by Thomas Pynchon</li>
-                <li>India Is Broken, by Ashoka Mody</li>
-                <li>Deep Work, by Cal Newport</li>
-                <li>Herzog, by Saul Bellow</li>
-                <li>The Political Economy of Stalinism, by Paul Gregory</li>
-                <li>The Russian Origins of the First World War, by Sean McMeekin</li>
-                <li>The Geography of Thought, by Richard Nisbett</li>
-                <li>Chess Story, by Stefan Zweig</li>
-                <li><b>The Snows of Yesteryear</b>, by Gregor von Rezzori</li>
-                <li>Life & Times of Michael K, by J. M. Coetzee</li>
-                <li>Seeing Like a State, by James C. Scott</li>
-                <li><b>Augustus</b>, by John Williams</li>
-                <li>Heart of Darkness, by Joseph Conrad</li>
-                <li>Darkness by Design, by Walter Mattli</li>
-                <li>The Guns of August, by Barbara Tuchman</li>
-                <li>Globalizing Capital, by Barry Eichengreen</li>
-                <li><b>The Good Soldier</b>, by Ford Madox Ford</li>
-                <li>Farm to Factory, by Robert Allen</li>
-                <li><b>Memoirs of an Anti-Semite</b>, by Gregor von Rezzori</li>
-                <li>A Sorrow Beyond Dreams, by Peter Handke</li>
-                <li>The Holy Grail of Macroeconomics, by Richard Koo</li>
-                <li>The Bridge, by Thane Gustafson</li>
-                <li>Fischer Black and the Revolutionary Idea of Finance, by Perry Mehrling</li>
-                <li>The Fall of Rome and the End of Civilization, by Bryan Ward-Perkins</li>
-                <li>Faust, Part I, by Johann Wolfgang von Goethe</li>
-                <li>Butcher&rsquo;s Crossing, by John Williams</li>
-                <li>The Sorrows of Young Werther, by Johann Wolfgang von Goethe</li>
-                <li>Brazil Apart, by Perry Anderson</li>
-                <li>Automation and the Future of Work, by Aaron Benanav</li>
-                <li>Kaputt, by Curzio Malaparte</li>
-                <li><b>The Land of Too Much</b>, by Monica Prasad</li>
-                <li>Why the Germans Do it Better, by John Kampfner</li>
-                <li>Disgrace, by J. M. Coetzee</li>
-                <li>The Prodigal, by Derek Walcott</li>
-                <li><b>A Time of Gifts</b>, by Patrick Leigh Fermor</li>
-                <li>Global Development: A Cold War History, by Sara Lorenzini</li>
-                <li><b>Crazy Like Us</b>, by Ethan Watters</li>
-                <li>Kaput: The End of the German Miracle, by Wolfgang Münchau</li>
-                <li><b>Nature and Selected Essays</b>, by Ralph Waldo Emerson</li>
-                <li>Britain Alone, by Philip Stephens</li>
-                <li>1177 B.C., by Eric Cline</li>
-                <li>Berlin Stories, by Robert Walser</li>
-                <li>An Area of Darkness, by V. S. Naipaul</li>
-                <li>The Balkans, by Mark Mazower</li>
-                <li>King Lear, by William Shakespeare</li>
-                <li>The Laws of Trading, by Agustin Lebron</li>
-                <li>The Adventures of Huckleberry Finn, by Mark Twain</li>
-                <li>The Origins of Woke, by Richard Hanania</li>
-                <li><b>House of Debt</b>, by Amir Sufi and Atif Mian</li>
-                <li>Nomad Century, by Gaia Vince</li>
-                <li>How Long Will South Africa Survive?: The Looming Crisis, by R. W. Johnson</li>
-                <li>Lombard Street, by Walter Bagehot</li>
-                <li>A Man for All Markets, by Edward Thorp</li>
-                <li><b>Ravelstein</b>, by Saul Bellow</li>
-                <li>The Indian Ideology, by Perry Anderson</li>
-                <li>Spain, by Michael Reid</li>
-                <li><b>The Great Demographic Reversal</b>, by Charles Goodhart and Manoj Pradhan</li>
-                <li>The Curse of Cash, by Kenneth Rogoff</li>
-                <li>Klimat: Russia in the Age of Climate Change, by Thane Gustafson</li>
-                <li><b>Caesar: Life of a Colossus</b>, by Adrian Goldsworthy</li>
-                <li>Forging Global Fordism, by Stefan Link</li>
-                <li>Blitzed: Drugs in the Third Reich, by Norman Ohler</li>
-                <li><b>The Transformation of the World</b>, by Jürgen Osterhammel</li>
-                <li>Exorbitant Privilege, by Barry Eichengreen</li>
-                <li>The Twilight of the Idols and the Anti-Christ, by Friedrich Nietzsche</li>
+                <li><a href="/">About</a></li>
+                <li><a href="/books">Books</a></li>
+                <li><a href="/blog">Blog</a></li>
             </ul>
         </div>
+        <div id="content">
+            <h1>Bookshelf</h1>
+            
+            <div class="intro">
+                <p>This is a running list of books I've read since roughly the spring of 2023. Books that I particularly enjoyed, or at least thought were particularly interesting, are <b>bolded</b>.</p>
+            </div>
+
+            <div class="booklist">
+                <ul>
+                    <li>The Grid, by Gretchen Bakke</li>
+                    <li><b>The Brothers Karamazov</b>, by Fyodor Dostoevsky</li>
+                    <li><b>Stoner</b>, by John Williams</li>
+                    <li>The Unaccountability Machine, by Dan Davies</li>
+                    <li>Submission, by Michel Houellebecq</li>
+                    <li>The Destruction of the Bison, by Andrew Isenberg</li>
+                    <li><b>Waiting for the Barbarians</b>, by J. M. Coetzee</li>
+                    <li>The World for Sale, by Javier Blas and Jack Farchy</li>
+                    <li>Fathers and Children, by Ivan Turgenev</li>
+                    <li>The Bond King, by Mary Childs</li>
+                    <li>The Dean of Shandong, by Edward A. Bell</li>
+                    <li>Oceans of Grain, by Scott Reynolds Nelson</li>
+                    <li>The Sense of an Ending, by Julian Barnes</li>
+                    <li><b>Trade Wars are Class Wars</b>, by Matt Klein and Michael Pettis</li>
+                    <li>American Foreign Policy and its Thinkers, by Perry Anderson</li>
+                    <li><b>Conversations with Goethe</b>, by Johann Peter Eckermann</li>
+                    <li>On the Natural History of Destruction, by W. G. Sebald</li>
+                    <li>2666, by Roberto Bolaño</li>
+                    <li>The Crying of Lot 49, by Thomas Pynchon</li>
+                    <li>India Is Broken, by Ashoka Mody</li>
+                    <li>Deep Work, by Cal Newport</li>
+                    <li>Herzog, by Saul Bellow</li>
+                    <li>The Political Economy of Stalinism, by Paul Gregory</li>
+                    <li>The Russian Origins of the First World War, by Sean McMeekin</li>
+                    <li>The Geography of Thought, by Richard Nisbett</li>
+                    <li>Chess Story, by Stefan Zweig</li>
+                    <li><b>The Snows of Yesteryear</b>, by Gregor von Rezzori</li>
+                    <li>Life & Times of Michael K, by J. M. Coetzee</li>
+                    <li>Seeing Like a State, by James C. Scott</li>
+                    <li><b>Augustus</b>, by John Williams</li>
+                    <li>Heart of Darkness, by Joseph Conrad</li>
+                    <li>Darkness by Design, by Walter Mattli</li>
+                    <li>The Guns of August, by Barbara Tuchman</li>
+                    <li>Globalizing Capital, by Barry Eichengreen</li>
+                    <li><b>The Good Soldier</b>, by Ford Madox Ford</li>
+                    <li>Farm to Factory, by Robert Allen</li>
+                    <li><b>Memoirs of an Anti-Semite</b>, by Gregor von Rezzori</li>
+                    <li>A Sorrow Beyond Dreams, by Peter Handke</li>
+                    <li>The Holy Grail of Macroeconomics, by Richard Koo</li>
+                    <li>The Bridge, by Thane Gustafson</li>
+                    <li>Fischer Black and the Revolutionary Idea of Finance, by Perry Mehrling</li>
+                    <li>The Fall of Rome and the End of Civilization, by Bryan Ward-Perkins</li>
+                    <li>Faust, Part I, by Johann Wolfgang von Goethe</li>
+                    <li>Butcher's Crossing, by John Williams</li>
+                    <li>The Sorrows of Young Werther, by Johann Wolfgang von Goethe</li>
+                    <li>Brazil Apart, by Perry Anderson</li>
+                    <li>Automation and the Future of Work, by Aaron Benanav</li>
+                    <li>Kaputt, by Curzio Malaparte</li>
+                    <li><b>The Land of Too Much</b>, by Monica Prasad</li>
+                    <li>Why the Germans Do it Better, by John Kampfner</li>
+                    <li>Disgrace, by J. M. Coetzee</li>
+                    <li>The Prodigal, by Derek Walcott</li>
+                    <li><b>A Time of Gifts</b>, by Patrick Leigh Fermor</li>
+                    <li>Global Development: A Cold War History, by Sara Lorenzini</li>
+                    <li><b>Crazy Like Us</b>, by Ethan Watters</li>
+                    <li>Kaput: The End of the German Miracle, by Wolfgang Münchau</li>
+                    <li><b>Nature and Selected Essays</b>, by Ralph Waldo Emerson</li>
+                    <li>Britain Alone, by Philip Stephens</li>
+                    <li>1177 B.C., by Eric Cline</li>
+                    <li>Berlin Stories, by Robert Walser</li>
+                    <li>An Area of Darkness, by V. S. Naipaul</li>
+                    <li>The Balkans, by Mark Mazower</li>
+                    <li>King Lear, by William Shakespeare</li>
+                    <li>The Laws of Trading, by Agustin Lebron</li>
+                    <li>The Adventures of Huckleberry Finn, by Mark Twain</li>
+                    <li>The Origins of Woke, by Richard Hanania</li>
+                    <li><b>House of Debt</b>, by Amir Sufi and Atif Mian</li>
+                    <li>Nomad Century, by Gaia Vince</li>
+                    <li>How Long Will South Africa Survive?: The Looming Crisis, by R. W. Johnson</li>
+                    <li>Lombard Street, by Walter Bagehot</li>
+                    <li>A Man for All Markets, by Edward Thorp</li>
+                    <li><b>Ravelstein</b>, by Saul Bellow</li>
+                    <li>The Indian Ideology, by Perry Anderson</li>
+                    <li>Spain, by Michael Reid</li>
+                    <li><b>The Great Demographic Reversal</b>, by Charles Goodhart and Manoj Pradhan</li>
+                    <li>The Curse of Cash, by Kenneth Rogoff</li>
+                    <li>Klimat: Russia in the Age of Climate Change, by Thane Gustafson</li>
+                    <li><b>Caesar: Life of a Colossus</b>, by Adrian Goldsworthy</li>
+                    <li>Forging Global Fordism, by Stefan Link</li>
+                    <li>Blitzed: Drugs in the Third Reich, by Norman Ohler</li>
+                    <li><b>The Transformation of the World</b>, by Jürgen Osterhammel</li>
+                    <li>Exorbitant Privilege, by Barry Eichengreen</li>
+                    <li>The Twilight of the Idols and the Anti-Christ, by Friedrich Nietzsche</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="sidebar">
-        <a href="/">About</a>
-        <a href="/books">Books</a>
-    </div>
-</div>
 </body>
 </html>
