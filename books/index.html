@@ -3,39 +3,35 @@
 <head>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌀</text></svg>">
     <meta name="description" content="David Oks's Bookshelf"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        * {
-            box-sizing: border-box;
+        body {
+            line-height: 1.5;
+            font-size: 16px;
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            line-height: 1.6;
-            font-size: 16px;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             color: #24292e;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            min-width: 900px;
         }
 
         .main-container {
             display: flex;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            gap: 40px;
+            padding: 40px 20px;
         }
 
         #menu {
             width: 200px;
-            flex-shrink: 0;
+            padding-right: 40px;
+            text-align: left;
         }
 
         .title {
-            font-size: clamp(18px, 4vw, 24px);
+            font-size: 18px;
             font-weight: 600;
             display: block;
             margin-bottom: 20px;
@@ -43,8 +39,8 @@
 
         #menu ul {
             list-style: none;
-            position: sticky;
-            top: 20px;
+            padding: 0;
+            margin: 0;
         }
 
         #menu li {
@@ -54,13 +50,11 @@
         #content {
             max-width: 650px;
             flex-grow: 1;
-            width: 100%;
         }
 
         a {
             color: #0366d6;
             text-decoration: none;
-            padding: 2px 0;
         }
 
         a:hover {
@@ -69,11 +63,10 @@
 
         p {
             margin: 16px 0;
-            font-size: clamp(16px, 3vw, 18px);
         }
 
         h1 {
-            font-size: clamp(20px, 4vw, 24px);
+            font-size: 20px;
             font-weight: 600;
             margin-bottom: 1em;
             margin-top: 0;
@@ -90,52 +83,7 @@
         }
 
         .booklist li {
-            margin: 0.75em 0;
-            font-size: clamp(15px, 3vw, 16px);
-            line-height: 1.5;
-        }
-
-        /* Mobile styles */
-        @media (max-width: 900px) {
-            .main-container {
-                flex-direction: column;
-                padding: 16px;
-            }
-
-            #menu {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            #menu ul {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 16px;
-                margin-top: 16px;
-            }
-
-            #menu li {
-                margin-bottom: 0;
-            }
-
-            .booklist ul {
-                padding-left: 1.25em;
-            }
-        }
-
-        /* Small mobile devices */
-        @media (max-width: 400px) {
-            .main-container {
-                padding: 12px;
-            }
-
-            #menu ul {
-                gap: 12px;
-            }
-
-            .booklist li {
-                margin: 0.5em 0;
-            }
+            margin: 0.5em 0;
         }
     </style>
     <title>David Oks - Bookshelf</title>
