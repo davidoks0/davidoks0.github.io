@@ -2,4 +2,4 @@ plugins:
   - jekyll-redirect-from
 
 # Custom permalink pattern without trailing slashes
-permalink: /:categories/:title
+permalink: pretty
