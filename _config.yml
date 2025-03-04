@@ -1,5 +1,5 @@
 plugins:
   - jekyll-redirect-from
 
-# Set permalink style to "pretty" for clean URLs without trailing slashes
-permalink: pretty
+# Custom permalink pattern without trailing slashes
+permalink: /:categories/:title
