@@ -1,0 +1,4 @@
+# Redirect URLs with trailing slashes to non-trailing slash versions
+/blog/    /blog    301
+/books/   /books   301
+/**/      /:splat  301 

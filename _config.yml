@@ -1,5 +1,18 @@
 plugins:
   - jekyll-redirect-from
 
-# Custom permalink pattern without trailing slashes
-permalink: pretty
+# Remove trailing slashes from URLs
+permalink: /:categories/:title
+trailing_slash: false
+
+# Default layout settings
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
+
+# Site settings
+url: "https://davidoks.com"
+baseurl: ""
