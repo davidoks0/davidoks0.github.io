@@ -10,7 +10,10 @@
 <body>
     <div class="main-container">
         <div id="menu">
-            <span class="title">David Oks</span>
+            <div class="title-container">
+                <span class="title">David Oks</span>
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">~</button>
+            </div>
             <ul>
                 <li><a href="/">About</a></li>
                 <li><a href="/books">Books</a></li>
@@ -126,6 +129,26 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-N6V6S1SXDB');
+    </script>
+    <script>
+      // Dark mode toggle functionality
+      (function() {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        // Check localStorage for saved preference
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (isDarkMode) {
+          body.classList.add('dark-mode');
+        }
+        
+        // Toggle dark mode
+        darkModeToggle.addEventListener('click', function() {
+          body.classList.toggle('dark-mode');
+          const isDark = body.classList.contains('dark-mode');
+          localStorage.setItem('darkMode', isDark);
+        });
+      })();
     </script>
 </body>
 </html>

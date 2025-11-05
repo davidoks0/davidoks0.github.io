@@ -5,12 +5,16 @@
     <meta name="description" content="The death of Jeff Rigsby"/>
     <meta name="viewport" content="width=device-width, initial-scale=0.45">
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="preload" as="image" href="assets/images/jeff-rigsby.jpg" fetchpriority="high">
     <title>The death of Jeff Rigsby - David Oks</title>
 </head>
 <body>
     <div class="main-container">
         <div id="menu">
-            <span class="title">David Oks</span>
+            <div class="title-container">
+                <span class="title">David Oks</span>
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">~</button>
+            </div>
             <ul>
                 <li><a href="/">About</a></li>
                 <li><a href="/books">Books</a></li>
@@ -22,7 +26,7 @@
             <span class="post-date">January 2025</span>
             
             <div class="post-image">
-                <img src="https://i.ibb.co/7S844CT/signal-2025-01-12-122540-002.jpg" alt="Jeff Rigsby in Afghanistan">
+                <img src="assets/images/jeff-rigsby.jpg" alt="Jeff Rigsby in Afghanistan" loading="eager" fetchpriority="high">
             </div>
             
             <div class="post-content">
@@ -70,6 +74,26 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-N6V6S1SXDB');
+    </script>
+    <script>
+      // Dark mode toggle functionality
+      (function() {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        // Check localStorage for saved preference
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (isDarkMode) {
+          body.classList.add('dark-mode');
+        }
+        
+        // Toggle dark mode
+        darkModeToggle.addEventListener('click', function() {
+          body.classList.toggle('dark-mode');
+          const isDark = body.classList.contains('dark-mode');
+          localStorage.setItem('darkMode', isDark);
+        });
+      })();
     </script>
 </body>
 </html>

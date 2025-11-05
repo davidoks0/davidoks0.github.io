@@ -78,8 +78,8 @@ body {
 }
 
 a {
-    color: #0366d6;
-    text-decoration: none;
+    color: #000000;
+    text-decoration: underline;
 }
 
 a:hover {
@@ -161,5 +161,50 @@ blockquote {
 i, em {
     font-style: italic;
     font-weight: inherit;
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: inherit;
+    padding: 0;
+    margin-left: 8px;
+    vertical-align: baseline;
+    font-family: "Newsreader", serif;
+}
+
+.dark-mode-toggle:hover {
+    opacity: 0.7;
+}
+
+.title-container {
+    display: flex;
+    align-items: baseline;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.dark-mode a {
+    color: #e0e0e0;
+}
+
+body.dark-mode .post-date {
+    color: #a0a0a0;
+}
+
+body.dark-mode blockquote {
+    border-left-color: #444;
+    color: #d0d0d0;
+}
+
+body.dark-mode .blog-date {
+    color: #d0d0d0;
 }
 
