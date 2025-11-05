@@ -174,10 +174,21 @@ i, em {
     margin-left: 8px;
     vertical-align: baseline;
     font-family: "Newsreader", serif;
+    display: inline-flex;
+    align-items: center;
+    color: #d4af37;
 }
 
 .dark-mode-toggle:hover {
     opacity: 0.7;
+}
+
+.dark-mode-toggle svg {
+    display: block;
+}
+
+body.dark-mode .dark-mode-toggle {
+    color: #ffd700;
 }
 
 .title-container {
