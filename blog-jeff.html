@@ -12,6 +12,15 @@
     <meta property="og:image" content="https://davidoks.com/assets/images/jeff-rigsby.jpg">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="preload" as="image" href="assets/images/jeff-rigsby.jpg" fetchpriority="high">
+    <script>
+      // Apply dark mode immediately before rendering to prevent flash
+      (function() {
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (isDarkMode) {
+          document.documentElement.classList.add('dark-mode');
+        }
+      })();
+    </script>
     <title>The death of Jeff Rigsby - David Oks</title>
 </head>
 <body>
@@ -91,16 +100,17 @@
       (function() {
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
+        const html = document.documentElement;
         
-        // Check localStorage for saved preference
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
-        if (isDarkMode) {
+        // Sync body with html (in case html was set in head)
+        if (html.classList.contains('dark-mode')) {
           body.classList.add('dark-mode');
         }
         
         // Toggle dark mode
         darkModeToggle.addEventListener('click', function() {
           body.classList.toggle('dark-mode');
+          html.classList.toggle('dark-mode');
           const isDark = body.classList.contains('dark-mode');
           localStorage.setItem('darkMode', isDark);
         });

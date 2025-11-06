@@ -10,6 +10,15 @@
     <meta property="og:url" content="https://davidoks.com/">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="assets/style.css">
+    <script>
+      // Apply dark mode immediately before rendering to prevent flash
+      (function() {
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (isDarkMode) {
+          document.documentElement.classList.add('dark-mode');
+        }
+      })();
+    </script>
     <title>David Oks</title>
 </head>
 <body>
@@ -37,6 +46,7 @@
             <p>Before that, I ran a <a href="https://en.wikipedia.org/wiki/The_Gravel_Institute">nonprofit</a> and did <a href="https://www.palladiummag.com/author/david-oks/">foreign reporting</a> while studying at Oxford.</p>
             <p>Before that, I ran a <a href="https://en.wikipedia.org/wiki/Mike_Gravel_2020_presidential_campaign">presidential campaign</a> while I was in high school.</p>
             <p>I live in California.</p>
+            <p>I&rsquo;m interested in economics (particularly development economics), technology, and history.</p>
             <p>You can email me at davideoks [at] gmail [dot] com.</p>
         </div>
     </div>
@@ -54,16 +64,17 @@
       (function() {
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
+        const html = document.documentElement;
         
-        // Check localStorage for saved preference
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
-        if (isDarkMode) {
+        // Sync body with html (in case html was set in head)
+        if (html.classList.contains('dark-mode')) {
           body.classList.add('dark-mode');
         }
         
         // Toggle dark mode
         darkModeToggle.addEventListener('click', function() {
           body.classList.toggle('dark-mode');
+          html.classList.toggle('dark-mode');
           const isDark = body.classList.contains('dark-mode');
           localStorage.setItem('darkMode', isDark);
         });

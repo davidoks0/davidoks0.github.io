@@ -188,6 +188,7 @@ i, em {
     display: block;
 }
 
+html.dark-mode .dark-mode-toggle,
 body.dark-mode .dark-mode-toggle {
     color: #ffd700;
 }
@@ -198,24 +199,29 @@ body.dark-mode .dark-mode-toggle {
 }
 
 /* Dark mode styles */
+html.dark-mode,
 body.dark-mode {
     background-color: #1a1a1a;
     color: #e0e0e0;
 }
 
+html.dark-mode a,
 body.dark-mode a {
     color: #7DD3C0;
 }
 
+html.dark-mode .post-date,
 body.dark-mode .post-date {
     color: #a0a0a0;
 }
 
+html.dark-mode blockquote,
 body.dark-mode blockquote {
     border-left-color: #444;
     color: #d0d0d0;
 }
 
+html.dark-mode .blog-date,
 body.dark-mode .blog-date {
     color: #d0d0d0;
 }
