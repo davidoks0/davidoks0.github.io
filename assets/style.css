@@ -172,11 +172,12 @@ i, em {
     color: inherit;
     padding: 0;
     margin-left: 8px;
-    vertical-align: baseline;
+    vertical-align: middle;
     font-family: "Newsreader", serif;
     display: inline-flex;
     align-items: center;
     color: #d4af37;
+    transform: translateY(2px);
 }
 
 .dark-mode-toggle:hover {
