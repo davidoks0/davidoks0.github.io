@@ -100,11 +100,11 @@ a::after {
     font-size: 90%;
     position: relative;
     top: -0.10em;
-    color: #933;
+    color: #2a9d8f;
 }
 
 a:hover {
-    background: #fbf3f3;
+    background: #e8f5f3;
 }
 
 a:active {
@@ -233,12 +233,12 @@ body.dark-mode a {
 
 html.dark-mode a::after,
 body.dark-mode a::after {
-    color: #e07070;
+    color: #5ec4b6;
 }
 
 html.dark-mode a:hover,
 body.dark-mode a:hover {
-    background: #3a2a2a;
+    background: #2a3a38;
 }
 
 html.dark-mode .post-date,
