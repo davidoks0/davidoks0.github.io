@@ -30,13 +30,18 @@
     font-display: swap;
 }
 
+html {
+    background-color: #fffff8;
+}
+
 body {
-    line-height: 1.5;
-    font-size: 20px;
+    line-height: 1.6;
+    font-size: 19px;
     margin: 0;
     padding: 0;
     font-family: "Charter", serif;
-    color: #000000;
+    color: #333;
+    background-color: #fffff8;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-synthesis: none;
@@ -79,8 +84,8 @@ body {
 }
 
 a {
-    color: #000000;
-    text-decoration: underline;
+    color: #a00;
+    text-decoration: none;
 }
 
 a:hover {
@@ -99,7 +104,7 @@ h1 {
 }
 
 .post-date {
-    color: #586069;
+    color: #666;
     margin-bottom: 2em;
     display: block;
 }
@@ -120,9 +125,10 @@ h1 {
 
 blockquote {
     margin: 1.5em 0;
-    padding-left: 2em;
-    border-left: 3px solid #e1e4e8;
-    color: #24292e;
+    padding-left: 1.5em;
+    border-left: 3px solid #ccc;
+    color: #555;
+    font-style: italic;
 }
 
 .blog-list {
@@ -138,7 +144,7 @@ blockquote {
 .blog-date {
     width: 180px;
     flex-shrink: 0;
-    color: #24292e;
+    color: #666;
 }
 
 .blog-title {
@@ -170,14 +176,13 @@ i, em {
     border: none;
     cursor: pointer;
     font-size: 18px;
-    color: inherit;
     padding: 0;
     margin-left: 8px;
     vertical-align: middle;
     font-family: "Charter", serif;
     display: inline-flex;
     align-items: center;
-    color: #d4af37;
+    color: #999;
     transform: translateY(2px);
 }
 
@@ -189,10 +194,6 @@ i, em {
     display: block;
 }
 
-html.dark-mode .dark-mode-toggle,
-body.dark-mode .dark-mode-toggle {
-    color: #ffd700;
-}
 
 .title-container {
     display: flex;
@@ -202,28 +203,33 @@ body.dark-mode .dark-mode-toggle {
 /* Dark mode styles */
 html.dark-mode,
 body.dark-mode {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
 }
 
 html.dark-mode a,
 body.dark-mode a {
-    color: #7DD3C0;
+    color: #e07070;
 }
 
 html.dark-mode .post-date,
 body.dark-mode .post-date {
-    color: #a0a0a0;
+    color: #999;
 }
 
 html.dark-mode blockquote,
 body.dark-mode blockquote {
-    border-left-color: #444;
-    color: #d0d0d0;
+    border-left-color: #555;
+    color: #aaa;
 }
 
 html.dark-mode .blog-date,
 body.dark-mode .blog-date {
-    color: #d0d0d0;
+    color: #999;
+}
+
+html.dark-mode .dark-mode-toggle,
+body.dark-mode .dark-mode-toggle {
+    color: #d4d4d4;
 }
 
