@@ -42,7 +42,6 @@
         .country.visited,
         .country.visited path {
             fill: #2a9d8f;
-            cursor: pointer;
         }
         .country.visited:hover,
         .country.visited:hover path {
@@ -138,7 +137,7 @@
         </div>
         <div id="content">
             <h1 style="font-size: 20px;">Countries</h1>
-            <p>Places I&rsquo;ve visited. Click on a highlighted country to learn more.</p>
+            <p>Places I&rsquo;ve visited.</p>
 
             <div class="map-container" id="mapContainer">
                 <!-- Map will be loaded here -->
@@ -189,7 +188,7 @@
       // Map loading and interactivity
       (function() {
         // Countries visited (ISO 3166-1 alpha-2 codes, lowercase)
-        const visitedCountries = ['us', 'ca', 'mx'];
+        const visitedCountries = ['us', 'ca', 'mx', 'ar', 'py', 'uy', 'ec', 'es', 'gb', 'fr', 'pt'];
 
         // Country names mapping
         const countryNames = {
@@ -214,7 +213,7 @@
           'sl': 'Sierra Leone', 'lr': 'Liberia', 'ci': 'Ivory Coast', 'bf': 'Burkina Faso',
           'gh': 'Ghana', 'tg': 'Togo', 'bj': 'Benin', 'ng': 'Nigeria', 'cm': 'Cameroon',
           'cf': 'Central African Republic', 'ss': 'South Sudan', 'et': 'Ethiopia',
-          'er': 'Eritrea', 'dj': 'Djibouti', 'so': 'Somalia', 'ke': 'Kenya', 'ug': 'Uganda',
+          'er': 'Eritrea', 'dj': 'Djibouti', 'so': 'Somalia', 'somaliland': 'Somaliland', 'ke': 'Kenya', 'ug': 'Uganda',
           'cd': 'DR Congo', 'cg': 'Congo', 'ga': 'Gabon', 'gq': 'Equatorial Guinea',
           'rw': 'Rwanda', 'bi': 'Burundi', 'tz': 'Tanzania', 'ao': 'Angola', 'zm': 'Zambia',
           'mw': 'Malawi', 'mz': 'Mozambique', 'zw': 'Zimbabwe', 'bw': 'Botswana',
@@ -243,19 +242,18 @@
 
             // Helper to add events to an element
             function addCountryEvents(element, id) {
+              // Normalize ID (handle underscore prefixed IDs like _somaliland)
+              const normalizedId = id.startsWith('_') ? id.substring(1) : id;
+
               element.classList.add('country');
 
-              if (visitedCountries.includes(id)) {
+              if (visitedCountries.includes(normalizedId)) {
                 element.classList.add('visited');
               }
 
               element.addEventListener('mouseenter', function(e) {
-                const name = countryNames[id] || id.toUpperCase();
-                if (visitedCountries.includes(id)) {
-                  tooltip.textContent = name + ' (click to learn more)';
-                } else {
-                  tooltip.textContent = name;
-                }
+                const name = countryNames[normalizedId] || normalizedId.charAt(0).toUpperCase() + normalizedId.slice(1);
+                tooltip.textContent = name;
                 tooltip.style.opacity = '1';
               });
 
@@ -267,21 +265,13 @@
               element.addEventListener('mouseleave', function() {
                 tooltip.style.opacity = '0';
               });
-
-              if (visitedCountries.includes(id)) {
-                element.addEventListener('click', function() {
-                  const name = countryNames[id] || id.toUpperCase();
-                  const url = 'https://en.wikipedia.org/wiki/' + name.replace(/ /g, '_');
-                  window.open(url, '_blank');
-                });
-              }
             }
 
             // Handle <g> groups (countries with multiple paths like US, Canada)
             const groups = svg.querySelectorAll('g[id]');
             groups.forEach(group => {
               const id = group.getAttribute('id');
-              if (!id || id.startsWith('_')) return;
+              if (!id) return;
               addCountryEvents(group, id);
             });
 
@@ -289,7 +279,7 @@
             const paths = svg.querySelectorAll('path[id]');
             paths.forEach(path => {
               const id = path.getAttribute('id');
-              if (!id || id.startsWith('_')) return;
+              if (!id) return;
               // Skip if parent is already a styled group
               if (path.parentElement.tagName === 'g' && path.parentElement.hasAttribute('id')) return;
               addCountryEvents(path, id);
