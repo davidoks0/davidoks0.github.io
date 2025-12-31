@@ -35,7 +35,7 @@
         .country {
             fill: #e0e0e0;
             stroke: #fff;
-            stroke-width: 0.5;
+            stroke-width: 0.3;
             transition: fill 0.2s, opacity 0.2s;
         }
         .country.visited {
@@ -131,104 +131,8 @@
             <h1 style="font-size: 20px;">Countries</h1>
             <p>Places I&rsquo;ve visited. Click on a highlighted country to learn more.</p>
 
-            <div class="map-container">
-                <svg viewBox="0 0 2000 1000" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Accurate World Map SVG based on Natural Earth data -->
-
-                    <!-- North America -->
-                    <path class="country visited" id="CA" data-name="Canada" data-url="https://en.wikipedia.org/wiki/Canada" d="M165,70 L180,65 L200,60 L220,55 L250,50 L280,48 L310,50 L340,55 L370,52 L400,50 L430,55 L460,60 L480,65 L500,70 L520,68 L540,65 L560,70 L580,75 L600,80 L580,100 L560,110 L540,120 L520,125 L500,130 L480,135 L460,140 L440,145 L420,150 L400,155 L380,160 L360,165 L340,170 L320,175 L300,180 L280,185 L260,180 L240,175 L220,170 L200,165 L180,160 L160,155 L140,150 L120,145 L100,140 L90,130 L85,120 L90,110 L100,100 L120,90 L140,80 L165,70 M40,90 L60,85 L80,90 L90,100 L85,115 L70,120 L50,115 L40,100 Z M350,40 L380,35 L410,38 L430,45 L420,55 L390,58 L360,52 Z"/>
-
-                    <path class="country visited" id="US" data-name="United States" data-url="https://en.wikipedia.org/wiki/United_States" d="M90,185 L110,180 L130,175 L150,170 L170,165 L190,168 L210,175 L230,180 L250,185 L270,188 L290,185 L310,180 L330,175 L350,172 L370,175 L390,180 L410,185 L430,190 L450,195 L470,200 L490,205 L510,210 L530,215 L540,225 L535,240 L520,255 L500,265 L480,270 L460,275 L440,280 L420,285 L400,290 L380,292 L360,290 L340,285 L320,280 L300,275 L280,278 L260,282 L240,285 L220,282 L200,278 L180,275 L160,270 L140,265 L120,260 L100,255 L85,245 L75,230 L70,215 L75,200 L90,185 M35,165 L55,160 L75,165 L85,180 L80,195 L65,205 L45,200 L35,185 L35,165 Z"/>
-
-                    <path class="country visited" id="MX" data-name="Mexico" data-url="https://en.wikipedia.org/wiki/Mexico" d="M85,290 L105,285 L125,288 L145,292 L165,295 L185,300 L205,305 L225,310 L245,315 L265,320 L280,330 L290,345 L285,360 L270,375 L250,385 L230,390 L210,388 L190,382 L170,375 L155,365 L145,350 L138,335 L130,320 L115,310 L100,305 L85,295 Z"/>
-
-                    <!-- Central America -->
-                    <path class="country" id="GT" data-name="Guatemala" d="M205,390 L225,388 L235,400 L225,415 L205,412 L195,400 Z"/>
-                    <path class="country" id="BZ" data-name="Belize" d="M225,385 L238,383 L242,395 L230,398 Z"/>
-                    <path class="country" id="HN" data-name="Honduras" d="M235,400 L260,398 L275,410 L260,420 L235,415 Z"/>
-                    <path class="country" id="SV" data-name="El Salvador" d="M210,418 L230,415 L235,425 L215,428 Z"/>
-                    <path class="country" id="NI" data-name="Nicaragua" d="M240,425 L270,420 L280,440 L255,450 L235,445 Z"/>
-                    <path class="country" id="CR" data-name="Costa Rica" d="M245,455 L270,450 L280,465 L260,475 L245,468 Z"/>
-                    <path class="country" id="PA" data-name="Panama" d="M265,475 L300,470 L320,480 L305,495 L275,490 Z"/>
-
-                    <!-- Caribbean -->
-                    <path class="country" id="CU" data-name="Cuba" d="M280,320 L340,315 L370,325 L355,340 L305,345 L275,335 Z"/>
-                    <path class="country" id="JM" data-name="Jamaica" d="M310,360 L335,358 L340,368 L315,372 Z"/>
-                    <path class="country" id="HT" data-name="Haiti" d="M360,345 L385,342 L390,358 L365,362 Z"/>
-                    <path class="country" id="DO" data-name="Dominican Republic" d="M390,345 L420,342 L425,360 L395,365 Z"/>
-
-                    <!-- South America -->
-                    <path class="country" id="CO" data-name="Colombia" d="M280,500 L320,495 L350,505 L365,530 L350,560 L320,575 L285,565 L265,540 L270,515 Z"/>
-                    <path class="country" id="VE" data-name="Venezuela" d="M320,480 L380,475 L420,490 L430,520 L400,545 L355,550 L325,530 L320,500 Z"/>
-                    <path class="country" id="GY" data-name="Guyana" d="M395,505 L420,500 L435,525 L415,545 L390,535 Z"/>
-                    <path class="country" id="SR" data-name="Suriname" d="M420,502 L445,498 L455,520 L438,535 L418,525 Z"/>
-                    <path class="country" id="GF" data-name="French Guiana" d="M448,500 L475,496 L480,520 L460,530 L445,520 Z"/>
-                    <path class="country" id="EC" data-name="Ecuador" d="M245,555 L285,545 L295,575 L265,595 L240,580 Z"/>
-                    <path class="country" id="PE" data-name="Peru" d="M250,600 L305,585 L330,630 L310,700 L260,720 L230,680 L235,630 Z"/>
-                    <path class="country" id="BR" data-name="Brazil" d="M355,535 L480,520 L520,560 L540,620 L520,700 L470,760 L400,780 L340,760 L310,720 L320,660 L340,600 L355,560 Z"/>
-                    <path class="country" id="BO" data-name="Bolivia" d="M310,680 L360,665 L385,710 L355,750 L305,740 L295,700 Z"/>
-                    <path class="country" id="PY" data-name="Paraguay" d="M370,740 L410,730 L425,770 L390,790 L360,775 Z"/>
-                    <path class="country" id="UY" data-name="Uruguay" d="M400,810 L430,800 L445,830 L420,850 L395,835 Z"/>
-                    <path class="country" id="AR" data-name="Argentina" d="M320,780 L390,765 L420,810 L405,880 L360,940 L310,920 L295,860 L305,810 Z"/>
-                    <path class="country" id="CL" data-name="Chile" d="M285,720 L315,710 L325,780 L310,860 L290,940 L270,920 L265,840 L275,770 Z"/>
-
-                    <!-- Europe -->
-                    <path class="country" id="IS" data-name="Iceland" d="M720,60 L780,55 L800,75 L775,95 L730,90 L715,70 Z"/>
-                    <path class="country" id="NO" data-name="Norway" d="M890,30 L920,25 L945,40 L960,70 L950,100 L930,130 L900,150 L875,140 L860,110 L870,70 L880,45 Z"/>
-                    <path class="country" id="SE" data-name="Sweden" d="M905,90 L935,85 L955,110 L960,150 L945,185 L915,195 L895,175 L890,140 L895,105 Z"/>
-                    <path class="country" id="FI" data-name="Finland" d="M945,70 L985,65 L1010,90 L1015,130 L995,165 L960,170 L945,145 L950,105 Z"/>
-                    <path class="country" id="RU" data-name="Russia" d="M1000,50 L1200,35 L1400,30 L1600,40 L1750,60 L1850,100 L1900,160 L1880,220 L1800,260 L1700,280 L1600,275 L1500,260 L1400,250 L1300,240 L1200,235 L1100,240 L1050,230 L1020,200 L1010,170 L1020,130 L1010,90 Z"/>
-                    <path class="country" id="GB" data-name="United Kingdom" d="M800,130 L830,125 L850,145 L845,175 L820,190 L790,185 L780,160 L790,140 Z"/>
-                    <path class="country" id="IE" data-name="Ireland" d="M755,145 L785,140 L795,165 L780,185 L755,180 L745,160 Z"/>
-                    <path class="country" id="FR" data-name="France" d="M810,200 L860,195 L885,220 L880,260 L845,285 L800,280 L785,250 L795,220 Z"/>
-                    <path class="country" id="ES" data-name="Spain" d="M765,270 L830,265 L850,295 L835,335 L785,345 L755,320 L760,285 Z"/>
-                    <path class="country" id="PT" data-name="Portugal" d="M740,285 L765,280 L770,320 L755,345 L735,335 L730,300 Z"/>
-                    <path class="country" id="DE" data-name="Germany" d="M860,175 L910,170 L935,200 L925,240 L885,250 L860,235 L855,200 Z"/>
-                    <path class="country" id="PL" data-name="Poland" d="M915,175 L970,170 L995,200 L985,235 L945,245 L915,230 L910,200 Z"/>
-                    <path class="country" id="IT" data-name="Italy" d="M870,260 L905,255 L930,290 L920,340 L885,360 L860,340 L865,295 Z"/>
-                    <path class="country" id="GR" data-name="Greece" d="M945,305 L985,300 L1000,335 L985,365 L950,370 L935,345 Z"/>
-                    <path class="country" id="TR" data-name="Turkey" d="M970,280 L1080,270 L1120,300 L1110,340 L1050,360 L985,355 L965,325 Z"/>
-                    <path class="country" id="UA" data-name="Ukraine" d="M980,200 L1070,190 L1100,220 L1095,260 L1050,280 L990,275 L970,245 Z"/>
-
-                    <!-- Africa -->
-                    <path class="country" id="MA" data-name="Morocco" d="M755,355 L810,350 L830,385 L810,420 L760,430 L740,400 Z"/>
-                    <path class="country" id="DZ" data-name="Algeria" d="M810,350 L910,340 L950,400 L930,470 L850,490 L800,470 L790,410 Z"/>
-                    <path class="country" id="TN" data-name="Tunisia" d="M875,335 L905,330 L915,365 L895,390 L870,385 Z"/>
-                    <path class="country" id="LY" data-name="Libya" d="M910,365 L1020,355 L1050,420 L1030,500 L950,520 L900,490 L895,420 Z"/>
-                    <path class="country" id="EG" data-name="Egypt" d="M1020,355 L1100,345 L1130,410 L1115,480 L1050,500 L1010,470 L1015,400 Z"/>
-                    <path class="country" id="SD" data-name="Sudan" d="M1050,480 L1130,465 L1160,540 L1140,620 L1070,640 L1020,610 L1030,540 Z"/>
-                    <path class="country" id="ET" data-name="Ethiopia" d="M1120,560 L1190,550 L1220,610 L1195,670 L1135,680 L1100,640 Z"/>
-                    <path class="country" id="KE" data-name="Kenya" d="M1120,660 L1175,650 L1200,710 L1175,760 L1125,770 L1100,730 Z"/>
-                    <path class="country" id="TZ" data-name="Tanzania" d="M1100,750 L1165,740 L1190,810 L1160,870 L1100,880 L1075,830 Z"/>
-                    <path class="country" id="ZA" data-name="South Africa" d="M1000,860 L1100,845 L1140,920 L1110,990 L1030,1000 L980,960 L985,900 Z"/>
-                    <path class="country" id="NG" data-name="Nigeria" d="M870,520 L950,510 L985,570 L965,630 L900,645 L860,610 Z"/>
-                    <path class="country" id="CD" data-name="DR Congo" d="M1000,620 L1090,605 L1120,690 L1095,780 L1020,800 L970,760 L980,680 Z"/>
-
-                    <!-- Middle East -->
-                    <path class="country" id="SA" data-name="Saudi Arabia" d="M1100,380 L1200,365 L1250,430 L1235,520 L1160,550 L1100,530 L1090,450 Z"/>
-                    <path class="country" id="IR" data-name="Iran" d="M1160,300 L1280,285 L1330,350 L1310,420 L1240,445 L1170,430 L1150,365 Z"/>
-                    <path class="country" id="IQ" data-name="Iraq" d="M1100,320 L1160,310 L1185,360 L1165,405 L1115,415 L1090,375 Z"/>
-                    <path class="country" id="AF" data-name="Afghanistan" d="M1310,310 L1390,300 L1420,350 L1400,400 L1340,415 L1300,385 Z"/>
-                    <path class="country" id="PK" data-name="Pakistan" d="M1340,380 L1420,365 L1460,430 L1440,500 L1370,520 L1320,480 Z"/>
-
-                    <!-- South and East Asia -->
-                    <path class="country" id="IN" data-name="India" d="M1380,420 L1480,400 L1540,480 L1520,600 L1450,680 L1370,660 L1350,560 L1365,480 Z"/>
-                    <path class="country" id="CN" data-name="China" d="M1450,200 L1650,180 L1750,250 L1780,360 L1720,450 L1600,480 L1500,460 L1440,380 L1450,280 Z"/>
-                    <path class="country" id="MN" data-name="Mongolia" d="M1500,160 L1650,150 L1720,200 L1700,260 L1600,275 L1520,255 L1500,210 Z"/>
-                    <path class="country" id="JP" data-name="Japan" d="M1780,260 L1830,250 L1860,300 L1845,370 L1800,385 L1770,340 Z"/>
-                    <path class="country" id="KR" data-name="South Korea" d="M1720,320 L1755,315 L1770,355 L1750,385 L1720,380 L1710,350 Z"/>
-                    <path class="country" id="KP" data-name="North Korea" d="M1710,280 L1750,275 L1765,310 L1745,335 L1710,330 L1700,305 Z"/>
-                    <path class="country" id="TH" data-name="Thailand" d="M1560,500 L1610,490 L1640,550 L1620,620 L1570,640 L1540,590 Z"/>
-                    <path class="country" id="VN" data-name="Vietnam" d="M1620,500 L1670,490 L1695,560 L1680,640 L1635,660 L1610,610 Z"/>
-                    <path class="country" id="MY" data-name="Malaysia" d="M1580,660 L1650,650 L1680,700 L1650,740 L1590,745 L1565,705 Z"/>
-                    <path class="country" id="ID" data-name="Indonesia" d="M1600,740 L1800,725 L1880,780 L1850,850 L1700,870 L1580,840 L1570,785 Z"/>
-                    <path class="country" id="PH" data-name="Philippines" d="M1720,540 L1775,530 L1800,590 L1780,660 L1730,675 L1705,620 Z"/>
-
-                    <!-- Oceania -->
-                    <path class="country" id="AU" data-name="Australia" d="M1650,820 L1850,800 L1950,880 L1930,1000 L1800,1050 L1650,1020 L1600,940 L1620,870 Z"/>
-                    <path class="country" id="NZ" data-name="New Zealand" d="M1950,980 L1990,970 L2010,1020 L1990,1070 L1950,1075 L1935,1030 Z"/>
-                    <path class="country" id="PG" data-name="Papua New Guinea" d="M1850,720 L1930,710 L1970,760 L1945,810 L1880,820 L1845,775 Z"/>
-                </svg>
+            <div class="map-container" id="mapContainer">
+                <!-- Map will be loaded here -->
             </div>
 
             <div class="map-legend">
@@ -273,53 +177,104 @@
         });
       })();
 
-      // Map interactivity
+      // Map loading and interactivity
       (function() {
-        const tooltip = document.getElementById('tooltip');
-        const visitedCountries = document.querySelectorAll('.country.visited');
+        // Countries visited (ISO 3166-1 alpha-2 codes, lowercase)
+        const visitedCountries = ['us', 'ca', 'mx'];
 
-        visitedCountries.forEach(country => {
-          country.addEventListener('mouseenter', function(e) {
-            const name = this.getAttribute('data-name');
-            tooltip.textContent = name + ' (click to learn more)';
-            tooltip.style.opacity = '1';
-          });
+        // Country names mapping
+        const countryNames = {
+          'us': 'United States', 'ca': 'Canada', 'mx': 'Mexico',
+          'gt': 'Guatemala', 'bz': 'Belize', 'hn': 'Honduras', 'sv': 'El Salvador',
+          'ni': 'Nicaragua', 'cr': 'Costa Rica', 'pa': 'Panama', 'cu': 'Cuba',
+          'jm': 'Jamaica', 'ht': 'Haiti', 'do': 'Dominican Republic', 'pr': 'Puerto Rico',
+          'co': 'Colombia', 've': 'Venezuela', 'gy': 'Guyana', 'sr': 'Suriname',
+          'gf': 'French Guiana', 'ec': 'Ecuador', 'pe': 'Peru', 'br': 'Brazil',
+          'bo': 'Bolivia', 'py': 'Paraguay', 'uy': 'Uruguay', 'ar': 'Argentina', 'cl': 'Chile',
+          'is': 'Iceland', 'no': 'Norway', 'se': 'Sweden', 'fi': 'Finland', 'ru': 'Russia',
+          'ee': 'Estonia', 'lv': 'Latvia', 'lt': 'Lithuania', 'by': 'Belarus', 'ua': 'Ukraine',
+          'pl': 'Poland', 'de': 'Germany', 'cz': 'Czech Republic', 'sk': 'Slovakia',
+          'at': 'Austria', 'hu': 'Hungary', 'ro': 'Romania', 'md': 'Moldova', 'bg': 'Bulgaria',
+          'rs': 'Serbia', 'hr': 'Croatia', 'ba': 'Bosnia', 'si': 'Slovenia', 'mk': 'North Macedonia',
+          'al': 'Albania', 'gr': 'Greece', 'tr': 'Turkey', 'it': 'Italy', 'ch': 'Switzerland',
+          'fr': 'France', 'es': 'Spain', 'pt': 'Portugal', 'be': 'Belgium', 'nl': 'Netherlands',
+          'gb': 'United Kingdom', 'ie': 'Ireland', 'dk': 'Denmark', 'lu': 'Luxembourg',
+          'ma': 'Morocco', 'dz': 'Algeria', 'tn': 'Tunisia', 'ly': 'Libya', 'eg': 'Egypt',
+          'mr': 'Mauritania', 'ml': 'Mali', 'ne': 'Niger', 'td': 'Chad', 'sd': 'Sudan',
+          'sn': 'Senegal', 'gm': 'Gambia', 'gw': 'Guinea-Bissau', 'gn': 'Guinea',
+          'sl': 'Sierra Leone', 'lr': 'Liberia', 'ci': 'Ivory Coast', 'bf': 'Burkina Faso',
+          'gh': 'Ghana', 'tg': 'Togo', 'bj': 'Benin', 'ng': 'Nigeria', 'cm': 'Cameroon',
+          'cf': 'Central African Republic', 'ss': 'South Sudan', 'et': 'Ethiopia',
+          'er': 'Eritrea', 'dj': 'Djibouti', 'so': 'Somalia', 'ke': 'Kenya', 'ug': 'Uganda',
+          'cd': 'DR Congo', 'cg': 'Congo', 'ga': 'Gabon', 'gq': 'Equatorial Guinea',
+          'rw': 'Rwanda', 'bi': 'Burundi', 'tz': 'Tanzania', 'ao': 'Angola', 'zm': 'Zambia',
+          'mw': 'Malawi', 'mz': 'Mozambique', 'zw': 'Zimbabwe', 'bw': 'Botswana',
+          'na': 'Namibia', 'za': 'South Africa', 'sz': 'Eswatini', 'ls': 'Lesotho', 'mg': 'Madagascar',
+          'sy': 'Syria', 'iq': 'Iraq', 'ir': 'Iran', 'sa': 'Saudi Arabia', 'ye': 'Yemen',
+          'om': 'Oman', 'ae': 'UAE', 'qa': 'Qatar', 'kw': 'Kuwait', 'jo': 'Jordan',
+          'il': 'Israel', 'lb': 'Lebanon', 'ps': 'Palestine',
+          'kz': 'Kazakhstan', 'uz': 'Uzbekistan', 'tm': 'Turkmenistan', 'kg': 'Kyrgyzstan',
+          'tj': 'Tajikistan', 'af': 'Afghanistan', 'pk': 'Pakistan',
+          'in': 'India', 'np': 'Nepal', 'bt': 'Bhutan', 'bd': 'Bangladesh', 'lk': 'Sri Lanka', 'mm': 'Myanmar',
+          'th': 'Thailand', 'vn': 'Vietnam', 'la': 'Laos', 'kh': 'Cambodia', 'my': 'Malaysia',
+          'sg': 'Singapore', 'id': 'Indonesia', 'ph': 'Philippines', 'tw': 'Taiwan',
+          'cn': 'China', 'mn': 'Mongolia', 'kp': 'North Korea', 'kr': 'South Korea', 'jp': 'Japan',
+          'au': 'Australia', 'nz': 'New Zealand', 'pg': 'Papua New Guinea'
+        };
 
-          country.addEventListener('mousemove', function(e) {
-            tooltip.style.left = (e.clientX + 15) + 'px';
-            tooltip.style.top = (e.clientY + 15) + 'px';
-          });
+        // Load the SVG map
+        fetch('assets/world-map.svg')
+          .then(response => response.text())
+          .then(svgText => {
+            const container = document.getElementById('mapContainer');
+            container.innerHTML = svgText;
 
-          country.addEventListener('mouseleave', function() {
-            tooltip.style.opacity = '0';
-          });
+            const svg = container.querySelector('svg');
+            const tooltip = document.getElementById('tooltip');
 
-          country.addEventListener('click', function() {
-            const url = this.getAttribute('data-url');
-            if (url) {
-              window.open(url, '_blank');
-            }
-          });
-        });
+            // Style all paths
+            const allPaths = svg.querySelectorAll('path');
+            allPaths.forEach(path => {
+              const id = path.getAttribute('id');
+              if (!id || id.startsWith('_')) return; // Skip paths without ID or internal paths
 
-        // Show country name on hover for all countries
-        const allCountries = document.querySelectorAll('.country:not(.visited)');
-        allCountries.forEach(country => {
-          country.addEventListener('mouseenter', function(e) {
-            const name = this.getAttribute('data-name');
-            tooltip.textContent = name;
-            tooltip.style.opacity = '1';
-          });
+              path.classList.add('country');
 
-          country.addEventListener('mousemove', function(e) {
-            tooltip.style.left = (e.clientX + 15) + 'px';
-            tooltip.style.top = (e.clientY + 15) + 'px';
-          });
+              // Mark visited countries
+              if (visitedCountries.includes(id)) {
+                path.classList.add('visited');
+              }
 
-          country.addEventListener('mouseleave', function() {
-            tooltip.style.opacity = '0';
+              // Add hover events
+              path.addEventListener('mouseenter', function(e) {
+                const name = countryNames[id] || id.toUpperCase();
+                if (visitedCountries.includes(id)) {
+                  tooltip.textContent = name + ' (click to learn more)';
+                } else {
+                  tooltip.textContent = name;
+                }
+                tooltip.style.opacity = '1';
+              });
+
+              path.addEventListener('mousemove', function(e) {
+                tooltip.style.left = (e.clientX + 15) + 'px';
+                tooltip.style.top = (e.clientY + 15) + 'px';
+              });
+
+              path.addEventListener('mouseleave', function() {
+                tooltip.style.opacity = '0';
+              });
+
+              // Add click event for visited countries
+              if (visitedCountries.includes(id)) {
+                path.addEventListener('click', function() {
+                  const name = countryNames[id] || id.toUpperCase();
+                  const url = 'https://en.wikipedia.org/wiki/' + name.replace(/ /g, '_');
+                  window.open(url, '_blank');
+                });
+              }
+            });
           });
-        });
       })();
     </script>
 </body>
