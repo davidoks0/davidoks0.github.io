@@ -32,31 +32,40 @@
             width: 100%;
             height: auto;
         }
-        .country {
+        .country,
+        .country path {
             fill: #e0e0e0;
             stroke: #fff;
             stroke-width: 0.3;
             transition: fill 0.2s, opacity 0.2s;
         }
-        .country.visited {
+        .country.visited,
+        .country.visited path {
             fill: #2a9d8f;
             cursor: pointer;
         }
-        .country.visited:hover {
+        .country.visited:hover,
+        .country.visited:hover path {
             fill: #3dbdad;
             opacity: 0.9;
         }
         html.dark-mode .country,
-        body.dark-mode .country {
+        body.dark-mode .country,
+        html.dark-mode .country path,
+        body.dark-mode .country path {
             fill: #3a3a3a;
             stroke: #2a2a2a;
         }
         html.dark-mode .country.visited,
-        body.dark-mode .country.visited {
+        body.dark-mode .country.visited,
+        html.dark-mode .country.visited path,
+        body.dark-mode .country.visited path {
             fill: #5ec4b6;
         }
         html.dark-mode .country.visited:hover,
-        body.dark-mode .country.visited:hover {
+        body.dark-mode .country.visited:hover,
+        html.dark-mode .country.visited:hover path,
+        body.dark-mode .country.visited:hover path {
             fill: #7ed4c8;
         }
         .map-legend {
@@ -232,21 +241,15 @@
             const svg = container.querySelector('svg');
             const tooltip = document.getElementById('tooltip');
 
-            // Style all paths
-            const allPaths = svg.querySelectorAll('path');
-            allPaths.forEach(path => {
-              const id = path.getAttribute('id');
-              if (!id || id.startsWith('_')) return; // Skip paths without ID or internal paths
+            // Helper to add events to an element
+            function addCountryEvents(element, id) {
+              element.classList.add('country');
 
-              path.classList.add('country');
-
-              // Mark visited countries
               if (visitedCountries.includes(id)) {
-                path.classList.add('visited');
+                element.classList.add('visited');
               }
 
-              // Add hover events
-              path.addEventListener('mouseenter', function(e) {
+              element.addEventListener('mouseenter', function(e) {
                 const name = countryNames[id] || id.toUpperCase();
                 if (visitedCountries.includes(id)) {
                   tooltip.textContent = name + ' (click to learn more)';
@@ -256,23 +259,40 @@
                 tooltip.style.opacity = '1';
               });
 
-              path.addEventListener('mousemove', function(e) {
+              element.addEventListener('mousemove', function(e) {
                 tooltip.style.left = (e.clientX + 15) + 'px';
                 tooltip.style.top = (e.clientY + 15) + 'px';
               });
 
-              path.addEventListener('mouseleave', function() {
+              element.addEventListener('mouseleave', function() {
                 tooltip.style.opacity = '0';
               });
 
-              // Add click event for visited countries
               if (visitedCountries.includes(id)) {
-                path.addEventListener('click', function() {
+                element.addEventListener('click', function() {
                   const name = countryNames[id] || id.toUpperCase();
                   const url = 'https://en.wikipedia.org/wiki/' + name.replace(/ /g, '_');
                   window.open(url, '_blank');
                 });
               }
+            }
+
+            // Handle <g> groups (countries with multiple paths like US, Canada)
+            const groups = svg.querySelectorAll('g[id]');
+            groups.forEach(group => {
+              const id = group.getAttribute('id');
+              if (!id || id.startsWith('_')) return;
+              addCountryEvents(group, id);
+            });
+
+            // Handle direct <path> elements (single-path countries)
+            const paths = svg.querySelectorAll('path[id]');
+            paths.forEach(path => {
+              const id = path.getAttribute('id');
+              if (!id || id.startsWith('_')) return;
+              // Skip if parent is already a styled group
+              if (path.parentElement.tagName === 'g' && path.parentElement.hasAttribute('id')) return;
+              addCountryEvents(path, id);
             });
           });
       })();
