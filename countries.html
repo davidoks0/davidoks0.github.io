@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="preload" href="assets/fonts/Charter Regular.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="assets/fonts/Charter Italic.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="assets/fonts/Charter Bold.otf" as="font" type="font/otf" crossorigin>
+    <meta name="description" content="Countries I've visited"/>
+    <meta name="viewport" content="width=device-width, initial-scale=0.45">
+    <link rel="canonical" href="https://davidoks.com/countries">
+    <meta property="og:title" content="Countries - David Oks">
+    <meta property="og:description" content="Countries I've visited">
+    <meta property="og:url" content="https://davidoks.com/countries">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="assets/style.css">
+    <script>
+      (function() {
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (isDarkMode) {
+          document.documentElement.classList.add('dark-mode');
+        }
+      })();
+    </script>
+    <title>Countries - David Oks</title>
+    <style>
+        .map-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 1em 0;
+        }
+        .map-container svg {
+            width: 100%;
+            height: auto;
+        }
+        .country {
+            fill: #e0e0e0;
+            stroke: #fff;
+            stroke-width: 0.5;
+            transition: fill 0.2s, opacity 0.2s;
+        }
+        .country.visited {
+            fill: #2a9d8f;
+            cursor: pointer;
+        }
+        .country.visited:hover {
+            fill: #3dbdad;
+            opacity: 0.9;
+        }
+        html.dark-mode .country,
+        body.dark-mode .country {
+            fill: #3a3a3a;
+            stroke: #2a2a2a;
+        }
+        html.dark-mode .country.visited,
+        body.dark-mode .country.visited {
+            fill: #5ec4b6;
+        }
+        html.dark-mode .country.visited:hover,
+        body.dark-mode .country.visited:hover {
+            fill: #7ed4c8;
+        }
+        .map-legend {
+            display: flex;
+            gap: 1.5em;
+            margin-top: 1em;
+            font-size: 14px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 2px;
+        }
+        .legend-color.visited {
+            background: #2a9d8f;
+        }
+        .legend-color.not-visited {
+            background: #e0e0e0;
+        }
+        html.dark-mode .legend-color.visited,
+        body.dark-mode .legend-color.visited {
+            background: #5ec4b6;
+        }
+        html.dark-mode .legend-color.not-visited,
+        body.dark-mode .legend-color.not-visited {
+            background: #3a3a3a;
+        }
+        .country-tooltip {
+            position: fixed;
+            background: #333;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 1000;
+        }
+        html.dark-mode .country-tooltip,
+        body.dark-mode .country-tooltip {
+            background: #f0f0f0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div id="menu">
+            <div class="title-container">
+                <span class="title">David Oks</span>
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M12 2v2M12 20v2M22 12h-2M4 12H2M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41M19.07 19.07l-1.41-1.41M6.34 6.34l-1.41-1.41" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <ul>
+                <li><a href="/">About</a></li>
+                <li><a href="/books">Books</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/countries">Countries</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <h1 style="font-size: 20px;">Countries</h1>
+            <p>Places I&rsquo;ve visited. Click on a highlighted country to learn more.</p>
+
+            <div class="map-container">
+                <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Simplified World Map SVG -->
+                    <!-- North America -->
+                    <path class="country visited" id="CA" data-name="Canada" data-url="https://en.wikipedia.org/wiki/Canada" d="M180,50 L220,45 L260,50 L280,55 L300,50 L320,55 L340,50 L360,60 L380,55 L400,60 L380,70 L360,75 L340,80 L320,85 L300,90 L280,95 L260,100 L240,105 L220,110 L200,115 L180,120 L160,115 L140,110 L120,105 L100,100 L90,90 L100,80 L120,70 L140,60 L160,55 Z"/>
+                    <path class="country visited" id="US" data-name="United States" data-url="https://en.wikipedia.org/wiki/United_States" d="M100,120 L120,115 L140,120 L160,125 L180,130 L200,125 L220,120 L240,115 L260,110 L280,105 L300,100 L310,110 L305,125 L295,140 L280,150 L260,155 L240,160 L220,165 L200,170 L180,175 L160,180 L140,175 L120,170 L100,165 L85,155 L80,140 L85,125 Z M45,130 L70,125 L80,135 L75,150 L55,155 L40,145 Z"/>
+                    <path class="country visited" id="MX" data-name="Mexico" data-url="https://en.wikipedia.org/wiki/Mexico" d="M100,180 L120,175 L140,180 L160,185 L180,190 L200,195 L210,210 L200,225 L180,235 L160,240 L140,235 L120,225 L105,215 L95,200 L90,185 Z"/>
+
+                    <!-- Central America & Caribbean -->
+                    <path class="country" id="GT" data-name="Guatemala" d="M165,245 L180,242 L185,255 L170,260 Z"/>
+                    <path class="country" id="BZ" data-name="Belize" d="M180,240 L190,238 L192,248 L182,250 Z"/>
+                    <path class="country" id="HN" data-name="Honduras" d="M185,250 L205,248 L210,258 L190,262 Z"/>
+                    <path class="country" id="SV" data-name="El Salvador" d="M170,262 L185,260 L187,268 L172,270 Z"/>
+                    <path class="country" id="NI" data-name="Nicaragua" d="M190,265 L210,262 L215,278 L195,282 Z"/>
+                    <path class="country" id="CR" data-name="Costa Rica" d="M195,285 L210,282 L215,295 L200,298 Z"/>
+                    <path class="country" id="PA" data-name="Panama" d="M205,298 L230,295 L240,305 L220,310 Z"/>
+                    <path class="country" id="CU" data-name="Cuba" d="M220,215 L260,210 L270,220 L240,225 Z"/>
+                    <path class="country" id="JM" data-name="Jamaica" d="M245,235 L260,233 L262,240 L247,242 Z"/>
+                    <path class="country" id="HT" data-name="Haiti" d="M270,225 L285,223 L287,235 L272,237 Z"/>
+                    <path class="country" id="DO" data-name="Dominican Republic" d="M288,225 L305,223 L307,235 L290,237 Z"/>
+                    <path class="country" id="PR" data-name="Puerto Rico" d="M310,230 L322,228 L323,235 L311,237 Z"/>
+
+                    <!-- South America -->
+                    <path class="country" id="CO" data-name="Colombia" d="M230,310 L260,305 L280,315 L275,340 L250,350 L225,340 L220,320 Z"/>
+                    <path class="country" id="VE" data-name="Venezuela" d="M280,305 L320,300 L340,310 L335,330 L305,335 L280,325 Z"/>
+                    <path class="country" id="GY" data-name="Guyana" d="M320,315 L340,312 L345,330 L325,333 Z"/>
+                    <path class="country" id="SR" data-name="Suriname" d="M342,312 L360,310 L363,328 L345,330 Z"/>
+                    <path class="country" id="GF" data-name="French Guiana" d="M362,310 L378,308 L380,325 L365,327 Z"/>
+                    <path class="country" id="EC" data-name="Ecuador" d="M210,345 L240,340 L245,365 L215,370 Z"/>
+                    <path class="country" id="PE" data-name="Peru" d="M220,375 L260,365 L275,400 L250,430 L215,420 Z"/>
+                    <path class="country" id="BR" data-name="Brazil" d="M280,330 L380,320 L400,380 L380,450 L300,470 L260,440 L265,380 L275,345 Z"/>
+                    <path class="country" id="BO" data-name="Bolivia" d="M260,405 L295,395 L305,430 L275,445 Z"/>
+                    <path class="country" id="PY" data-name="Paraguay" d="M295,440 L320,435 L325,460 L300,465 Z"/>
+                    <path class="country" id="CL" data-name="Chile" d="M245,440 L265,435 L270,490 L250,495 L240,480 Z"/>
+                    <path class="country" id="AR" data-name="Argentina" d="M270,450 L310,445 L315,490 L280,500 L260,495 Z"/>
+                    <path class="country" id="UY" data-name="Uruguay" d="M315,460 L335,455 L338,475 L318,478 Z"/>
+
+                    <!-- Europe -->
+                    <path class="country" id="IS" data-name="Iceland" d="M400,55 L430,52 L435,65 L405,68 Z"/>
+                    <path class="country" id="NO" data-name="Norway" d="M480,40 L510,35 L520,70 L490,80 L475,60 Z"/>
+                    <path class="country" id="SE" data-name="Sweden" d="M500,55 L520,50 L530,90 L510,100 L495,75 Z"/>
+                    <path class="country" id="FI" data-name="Finland" d="M530,45 L560,40 L565,80 L540,90 L525,65 Z"/>
+                    <path class="country" id="RU" data-name="Russia" d="M570,35 L900,30 L920,120 L850,160 L700,150 L600,130 L560,100 L555,60 Z"/>
+                    <path class="country" id="EE" data-name="Estonia" d="M535,85 L550,83 L552,93 L537,95 Z"/>
+                    <path class="country" id="LV" data-name="Latvia" d="M535,98 L555,96 L557,108 L537,110 Z"/>
+                    <path class="country" id="LT" data-name="Lithuania" d="M532,112 L555,110 L557,122 L534,124 Z"/>
+                    <path class="country" id="BY" data-name="Belarus" d="M540,115 L575,112 L580,135 L545,138 Z"/>
+                    <path class="country" id="UA" data-name="Ukraine" d="M545,140 L610,135 L625,165 L560,175 Z"/>
+                    <path class="country" id="PL" data-name="Poland" d="M510,110 L545,105 L550,135 L515,140 Z"/>
+                    <path class="country" id="DE" data-name="Germany" d="M480,105 L515,100 L520,135 L485,140 Z"/>
+                    <path class="country" id="CZ" data-name="Czech Republic" d="M500,125 L525,123 L527,135 L502,137 Z"/>
+                    <path class="country" id="SK" data-name="Slovakia" d="M525,128 L550,126 L552,138 L527,140 Z"/>
+                    <path class="country" id="AT" data-name="Austria" d="M495,140 L530,138 L532,150 L497,152 Z"/>
+                    <path class="country" id="HU" data-name="Hungary" d="M520,145 L555,142 L557,157 L522,160 Z"/>
+                    <path class="country" id="RO" data-name="Romania" d="M545,150 L590,145 L595,170 L550,175 Z"/>
+                    <path class="country" id="MD" data-name="Moldova" d="M565,145 L580,143 L582,155 L567,157 Z"/>
+                    <path class="country" id="BG" data-name="Bulgaria" d="M545,175 L580,172 L583,190 L548,193 Z"/>
+                    <path class="country" id="RS" data-name="Serbia" d="M530,165 L550,162 L553,180 L533,183 Z"/>
+                    <path class="country" id="HR" data-name="Croatia" d="M510,155 L535,152 L537,170 L512,173 Z"/>
+                    <path class="country" id="BA" data-name="Bosnia" d="M520,168 L535,166 L537,180 L522,182 Z"/>
+                    <path class="country" id="SI" data-name="Slovenia" d="M505,150 L520,148 L522,158 L507,160 Z"/>
+                    <path class="country" id="MK" data-name="North Macedonia" d="M540,185 L555,183 L557,195 L542,197 Z"/>
+                    <path class="country" id="AL" data-name="Albania" d="M535,190 L548,188 L550,205 L537,207 Z"/>
+                    <path class="country" id="GR" data-name="Greece" d="M535,200 L565,195 L570,225 L540,230 Z"/>
+                    <path class="country" id="TR" data-name="Turkey" d="M555,180 L630,175 L640,200 L560,210 Z"/>
+                    <path class="country" id="IT" data-name="Italy" d="M485,155 L510,150 L520,200 L495,210 L480,180 Z"/>
+                    <path class="country" id="CH" data-name="Switzerland" d="M475,145 L495,143 L497,155 L477,157 Z"/>
+                    <path class="country" id="FR" data-name="France" d="M440,130 L480,125 L485,165 L445,170 Z"/>
+                    <path class="country" id="ES" data-name="Spain" d="M420,160 L465,155 L470,195 L425,200 Z"/>
+                    <path class="country" id="PT" data-name="Portugal" d="M410,165 L425,163 L427,195 L412,197 Z"/>
+                    <path class="country" id="BE" data-name="Belgium" d="M460,115 L480,113 L482,125 L462,127 Z"/>
+                    <path class="country" id="NL" data-name="Netherlands" d="M465,100 L485,98 L487,112 L467,114 Z"/>
+                    <path class="country" id="GB" data-name="United Kingdom" d="M430,95 L460,90 L465,125 L435,130 Z"/>
+                    <path class="country" id="IE" data-name="Ireland" d="M415,100 L435,97 L438,120 L418,123 Z"/>
+                    <path class="country" id="DK" data-name="Denmark" d="M485,85 L505,82 L507,100 L487,103 Z"/>
+
+                    <!-- Africa -->
+                    <path class="country" id="MA" data-name="Morocco" d="M420,210 L455,205 L460,235 L425,240 Z"/>
+                    <path class="country" id="DZ" data-name="Algeria" d="M455,200 L520,195 L530,255 L465,260 Z"/>
+                    <path class="country" id="TN" data-name="Tunisia" d="M490,195 L510,193 L512,215 L492,217 Z"/>
+                    <path class="country" id="LY" data-name="Libya" d="M510,210 L575,205 L585,270 L520,275 Z"/>
+                    <path class="country" id="EG" data-name="Egypt" d="M560,220 L610,215 L620,275 L570,280 Z"/>
+                    <path class="country" id="MR" data-name="Mauritania" d="M400,255 L455,250 L460,295 L405,300 Z"/>
+                    <path class="country" id="ML" data-name="Mali" d="M435,270 L495,265 L500,315 L440,320 Z"/>
+                    <path class="country" id="NE" data-name="Niger" d="M485,280 L545,275 L550,325 L490,330 Z"/>
+                    <path class="country" id="TD" data-name="Chad" d="M535,290 L590,285 L595,345 L540,350 Z"/>
+                    <path class="country" id="SD" data-name="Sudan" d="M580,280 L640,275 L650,350 L590,355 Z"/>
+                    <path class="country" id="SN" data-name="Senegal" d="M390,295 L420,292 L423,310 L393,313 Z"/>
+                    <path class="country" id="GM" data-name="Gambia" d="M392,308 L415,306 L416,314 L393,316 Z"/>
+                    <path class="country" id="GW" data-name="Guinea-Bissau" d="M390,318 L408,316 L410,328 L392,330 Z"/>
+                    <path class="country" id="GN" data-name="Guinea" d="M395,325 L430,322 L435,345 L400,348 Z"/>
+                    <path class="country" id="SL" data-name="Sierra Leone" d="M395,348 L415,346 L418,362 L398,364 Z"/>
+                    <path class="country" id="LR" data-name="Liberia" d="M400,362 L425,360 L428,380 L403,382 Z"/>
+                    <path class="country" id="CI" data-name="Ivory Coast" d="M420,345 L455,342 L460,385 L425,388 Z"/>
+                    <path class="country" id="BF" data-name="Burkina Faso" d="M445,315 L485,312 L488,345 L448,348 Z"/>
+                    <path class="country" id="GH" data-name="Ghana" d="M450,350 L475,348 L478,390 L453,392 Z"/>
+                    <path class="country" id="TG" data-name="Togo" d="M478,355 L490,353 L492,390 L480,392 Z"/>
+                    <path class="country" id="BJ" data-name="Benin" d="M490,350 L505,348 L508,395 L493,397 Z"/>
+                    <path class="country" id="NG" data-name="Nigeria" d="M495,330 L555,325 L565,395 L505,400 Z"/>
+                    <path class="country" id="CM" data-name="Cameroon" d="M510,365 L550,360 L560,410 L520,415 Z"/>
+                    <path class="country" id="CF" data-name="Central African Republic" d="M545,345 L610,340 L615,385 L550,390 Z"/>
+                    <path class="country" id="SS" data-name="South Sudan" d="M600,355 L650,350 L655,400 L605,405 Z"/>
+                    <path class="country" id="ET" data-name="Ethiopia" d="M640,345 L700,340 L710,400 L650,405 Z"/>
+                    <path class="country" id="ER" data-name="Eritrea" d="M640,320 L680,315 L685,340 L645,345 Z"/>
+                    <path class="country" id="DJ" data-name="Djibouti" d="M685,345 L700,343 L702,358 L687,360 Z"/>
+                    <path class="country" id="SO" data-name="Somalia" d="M695,355 L730,350 L740,420 L705,425 Z"/>
+                    <path class="country" id="KE" data-name="Kenya" d="M650,395 L700,390 L705,445 L655,450 Z"/>
+                    <path class="country" id="UG" data-name="Uganda" d="M620,395 L655,392 L658,430 L623,433 Z"/>
+                    <path class="country" id="CD" data-name="DR Congo" d="M545,390 L620,385 L630,475 L555,480 Z"/>
+                    <path class="country" id="CG" data-name="Congo" d="M520,405 L550,402 L555,450 L525,453 Z"/>
+                    <path class="country" id="GA" data-name="Gabon" d="M500,400 L525,398 L528,435 L503,437 Z"/>
+                    <path class="country" id="GQ" data-name="Equatorial Guinea" d="M495,395 L510,393 L512,408 L497,410 Z"/>
+                    <path class="country" id="RW" data-name="Rwanda" d="M610,420 L625,418 L627,432 L612,434 Z"/>
+                    <path class="country" id="BI" data-name="Burundi" d="M612,435 L625,433 L627,447 L614,449 Z"/>
+                    <path class="country" id="TZ" data-name="Tanzania" d="M625,430 L680,425 L690,490 L635,495 Z"/>
+                    <path class="country" id="AO" data-name="Angola" d="M510,445 L580,440 L590,510 L520,515 Z"/>
+                    <path class="country" id="ZM" data-name="Zambia" d="M575,465 L640,460 L650,510 L585,515 Z"/>
+                    <path class="country" id="MW" data-name="Malawi" d="M640,470 L660,468 L665,510 L645,512 Z"/>
+                    <path class="country" id="MZ" data-name="Mozambique" d="M640,490 L690,485 L700,545 L650,550 Z"/>
+                    <path class="country" id="ZW" data-name="Zimbabwe" d="M600,500 L645,495 L650,535 L605,540 Z"/>
+                    <path class="country" id="BW" data-name="Botswana" d="M565,510 L610,505 L615,555 L570,560 Z"/>
+                    <path class="country" id="NA" data-name="Namibia" d="M520,505 L570,500 L575,575 L525,580 Z"/>
+                    <path class="country" id="ZA" data-name="South Africa" d="M545,555 L640,550 L650,610 L555,615 Z"/>
+                    <path class="country" id="SZ" data-name="Eswatini" d="M625,560 L640,558 L642,572 L627,574 Z"/>
+                    <path class="country" id="LS" data-name="Lesotho" d="M600,580 L620,578 L622,595 L602,597 Z"/>
+                    <path class="country" id="MG" data-name="Madagascar" d="M700,480 L735,475 L745,560 L710,565 Z"/>
+
+                    <!-- Middle East -->
+                    <path class="country" id="SY" data-name="Syria" d="M600,195 L640,190 L645,215 L605,220 Z"/>
+                    <path class="country" id="IQ" data-name="Iraq" d="M620,205 L680,200 L690,250 L630,255 Z"/>
+                    <path class="country" id="IR" data-name="Iran" d="M670,190 L750,185 L765,265 L685,270 Z"/>
+                    <path class="country" id="SA" data-name="Saudi Arabia" d="M610,250 L700,245 L720,320 L630,325 Z"/>
+                    <path class="country" id="YE" data-name="Yemen" d="M640,310 L695,305 L700,340 L645,345 Z"/>
+                    <path class="country" id="OM" data-name="Oman" d="M700,280 L740,275 L745,320 L705,325 Z"/>
+                    <path class="country" id="AE" data-name="UAE" d="M690,270 L720,268 L722,290 L692,292 Z"/>
+                    <path class="country" id="QA" data-name="Qatar" d="M680,275 L695,273 L697,290 L682,292 Z"/>
+                    <path class="country" id="KW" data-name="Kuwait" d="M660,255 L680,253 L682,268 L662,270 Z"/>
+                    <path class="country" id="JO" data-name="Jordan" d="M590,230 L615,228 L618,255 L593,257 Z"/>
+                    <path class="country" id="IL" data-name="Israel" d="M585,230 L598,228 L600,255 L587,257 Z"/>
+                    <path class="country" id="LB" data-name="Lebanon" d="M590,215 L605,213 L607,228 L592,230 Z"/>
+
+                    <!-- Central Asia -->
+                    <path class="country" id="KZ" data-name="Kazakhstan" d="M650,100 L800,95 L820,160 L680,165 Z"/>
+                    <path class="country" id="UZ" data-name="Uzbekistan" d="M680,150 L750,145 L760,185 L690,190 Z"/>
+                    <path class="country" id="TM" data-name="Turkmenistan" d="M660,175 L720,170 L730,210 L670,215 Z"/>
+                    <path class="country" id="KG" data-name="Kyrgyzstan" d="M750,155 L790,152 L795,175 L755,178 Z"/>
+                    <path class="country" id="TJ" data-name="Tajikistan" d="M745,175 L780,172 L785,198 L750,201 Z"/>
+                    <path class="country" id="AF" data-name="Afghanistan" d="M730,195 L790,190 L800,240 L740,245 Z"/>
+                    <path class="country" id="PK" data-name="Pakistan" d="M740,235 L800,230 L815,300 L755,305 Z"/>
+
+                    <!-- South Asia -->
+                    <path class="country" id="IN" data-name="India" d="M760,270 L850,265 L870,380 L780,385 Z"/>
+                    <path class="country" id="NP" data-name="Nepal" d="M795,275 L835,272 L838,290 L798,293 Z"/>
+                    <path class="country" id="BT" data-name="Bhutan" d="M840,280 L860,278 L862,292 L842,294 Z"/>
+                    <path class="country" id="BD" data-name="Bangladesh" d="M845,300 L875,297 L880,330 L850,333 Z"/>
+                    <path class="country" id="LK" data-name="Sri Lanka" d="M810,370 L830,368 L833,395 L813,397 Z"/>
+                    <path class="country" id="MM" data-name="Myanmar" d="M850,285 L890,280 L900,355 L860,360 Z"/>
+
+                    <!-- Southeast Asia -->
+                    <path class="country" id="TH" data-name="Thailand" d="M870,320 L910,315 L920,385 L880,390 Z"/>
+                    <path class="country" id="VN" data-name="Vietnam" d="M895,310 L930,305 L940,395 L905,400 Z"/>
+                    <path class="country" id="LA" data-name="Laos" d="M890,305 L915,302 L920,350 L895,353 Z"/>
+                    <path class="country" id="KH" data-name="Cambodia" d="M895,355 L925,352 L930,390 L900,393 Z"/>
+                    <path class="country" id="MY" data-name="Malaysia" d="M880,395 L940,390 L945,420 L885,425 Z"/>
+                    <path class="country" id="SG" data-name="Singapore" d="M905,418 L920,416 L922,425 L907,427 Z"/>
+                    <path class="country" id="ID" data-name="Indonesia" d="M870,420 L980,415 L990,470 L880,475 Z"/>
+                    <path class="country" id="PH" data-name="Philippines" d="M940,330 L970,325 L980,400 L950,405 Z"/>
+                    <path class="country" id="TW" data-name="Taiwan" d="M920,275 L940,273 L943,300 L923,302 Z"/>
+
+                    <!-- East Asia -->
+                    <path class="country" id="CN" data-name="China" d="M780,160 L920,155 L940,280 L800,285 Z"/>
+                    <path class="country" id="MN" data-name="Mongolia" d="M780,110 L890,105 L900,155 L790,160 Z"/>
+                    <path class="country" id="KP" data-name="North Korea" d="M905,185 L930,182 L935,210 L910,213 Z"/>
+                    <path class="country" id="KR" data-name="South Korea" d="M915,210 L940,207 L945,245 L920,248 Z"/>
+                    <path class="country" id="JP" data-name="Japan" d="M945,175 L975,170 L985,250 L955,255 Z"/>
+
+                    <!-- Oceania -->
+                    <path class="country" id="AU" data-name="Australia" d="M850,440 L970,435 L990,540 L870,545 Z"/>
+                    <path class="country" id="NZ" data-name="New Zealand" d="M985,510 L1000,508 L1005,560 L990,562 Z"/>
+                    <path class="country" id="PG" data-name="Papua New Guinea" d="M950,400 L990,395 L1000,445 L960,450 Z"/>
+                </svg>
+            </div>
+
+            <div class="map-legend">
+                <div class="legend-item">
+                    <div class="legend-color visited"></div>
+                    <span>Visited</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color not-visited"></div>
+                    <span>Not yet visited</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="country-tooltip" id="tooltip"></div>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6V6S1SXDB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N6V6S1SXDB');
+    </script>
+    <script>
+      // Dark mode toggle functionality
+      (function() {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const html = document.documentElement;
+
+        if (html.classList.contains('dark-mode')) {
+          body.classList.add('dark-mode');
+        }
+
+        darkModeToggle.addEventListener('click', function() {
+          body.classList.toggle('dark-mode');
+          html.classList.toggle('dark-mode');
+          const isDark = body.classList.contains('dark-mode');
+          localStorage.setItem('darkMode', isDark);
+        });
+      })();
+
+      // Map interactivity
+      (function() {
+        const tooltip = document.getElementById('tooltip');
+        const visitedCountries = document.querySelectorAll('.country.visited');
+
+        visitedCountries.forEach(country => {
+          country.addEventListener('mouseenter', function(e) {
+            const name = this.getAttribute('data-name');
+            tooltip.textContent = name + ' (click to learn more)';
+            tooltip.style.opacity = '1';
+          });
+
+          country.addEventListener('mousemove', function(e) {
+            tooltip.style.left = (e.clientX + 15) + 'px';
+            tooltip.style.top = (e.clientY + 15) + 'px';
+          });
+
+          country.addEventListener('mouseleave', function() {
+            tooltip.style.opacity = '0';
+          });
+
+          country.addEventListener('click', function() {
+            const url = this.getAttribute('data-url');
+            if (url) {
+              window.open(url, '_blank');
+            }
+          });
+        });
+
+        // Show country name on hover for all countries
+        const allCountries = document.querySelectorAll('.country:not(.visited)');
+        allCountries.forEach(country => {
+          country.addEventListener('mouseenter', function(e) {
+            const name = this.getAttribute('data-name');
+            tooltip.textContent = name;
+            tooltip.style.opacity = '1';
+          });
+
+          country.addEventListener('mousemove', function(e) {
+            tooltip.style.left = (e.clientX + 15) + 'px';
+            tooltip.style.top = (e.clientY + 15) + 'px';
+          });
+
+          country.addEventListener('mouseleave', function() {
+            tooltip.style.opacity = '0';
+          });
+        });
+      })();
+    </script>
+</body>
+</html>
