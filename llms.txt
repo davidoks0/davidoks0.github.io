@@ -1,0 +1,75 @@
+# David Oks
+
+> Personal website of David Oks - economics, history, technology, and travel.
+
+## About
+
+David Oks works at [a16z](https://a16z.com/). Previously worked at a hedge fund in New York, ran [The Gravel Institute](https://en.wikipedia.org/wiki/The_Gravel_Institute) nonprofit, did [foreign reporting](https://www.palladiummag.com/author/david-oks/) for Palladium Magazine while at Oxford, and ran a [presidential campaign](https://en.wikipedia.org/wiki/Mike_Gravel_2020_presidential_campaign) in high school.
+
+Based in California. Interested in economics, history, and technology.
+
+Contact: davideoks [at] gmail [dot] com
+
+## Site Structure
+
+- **/** - About page with bio
+- **/books** - Reading list since spring 2023 (149+ books, favorites bolded)
+- **/blog** - Essays and articles
+- **/countries** - Interactive map of visited countries (36 countries)
+
+## Blog Posts
+
+### On the death of Jeff Rigsby (January 2025)
+Memorial essay about Jeff Rigsby, an American expatriate who died in Kabul, Afghanistan. A reflection on mortality, friendship, and a life spent in service of understanding Afghanistan.
+
+### On my time in Afghanistan (February 2023)
+[Palladium Magazine](https://www.palladiummag.com/2023/02/23/the-west-lives-on-in-the-talibans-afghanistan/) - Reporting from Taliban-controlled Afghanistan.
+
+### On antibiotics and gut dysfunction (December 2022)
+[Palladium Magazine](https://www.palladiummag.com/2022/12/13/are-farm-antibiotics-destroying-our-health/) - Investigation into farm antibiotics and their effects on human health.
+
+### On the long, slow death of global development (November 2022)
+[American Affairs](https://americanaffairsjournal.org/2022/11/the-long-slow-death-of-global-development/) - Analysis of global development challenges and failures.
+
+### On the history and problems of the modern diet (June 2022)
+[Palladium Magazine](https://www.palladiummag.com/2022/06/04/the-modern-diet-is-a-biosecurity-threat/) - How the modern diet poses biosecurity risks.
+
+### On my time in Ukraine (February 2022)
+[Palladium Magazine](https://www.palladiummag.com/2022/02/18/waiting-for-the-russians-in-ukraine/) - Reporting from Ukraine before the Russian invasion.
+
+## Selected Books (Favorites)
+
+The reading list includes many notable works. Bolded favorites include:
+- *The Brothers Karamazov* by Fyodor Dostoevsky
+- *Stoner* by John Williams
+- *Blood Meridian* by Cormac McCarthy
+- *Democracy in America* by Alexis de Tocqueville
+- *Trade Wars are Class Wars* by Matt Klein and Michael Pettis
+- *Augustus* by John Williams
+- *A Time of Gifts* by Patrick Leigh Fermor
+- *The Transformation of the World* by Jurgen Osterhammel
+- *Caesar: Life of a Colossus* by Adrian Goldsworthy
+
+## Countries Visited
+
+36 countries across North America, South America, Europe, Middle East, Africa, and Asia:
+
+**Americas:** United States, Canada, Mexico, Argentina, Paraguay, Uruguay, Ecuador
+
+**Europe:** United Kingdom, Ireland, France, Spain, Portugal, Germany, Italy, Austria, Switzerland, Netherlands, Belgium, Luxembourg, Finland, Estonia, Latvia, Ukraine, Poland, Czech Republic, Croatia, Slovenia, Serbia, Hungary
+
+**Middle East & Africa:** Israel, Tunisia, Algeria
+
+**Asia:** China, India, Pakistan, Afghanistan
+
+## Technical Details
+
+- Static site hosted on GitHub Pages
+- Custom Charter serif typography
+- Dark mode support
+- Interactive SVG world map
+
+## Additional Resources
+
+- [Substack](https://davidoks.substack.com/) - Current writing
+- Sitemap: https://davidoks.com/sitemap.xml

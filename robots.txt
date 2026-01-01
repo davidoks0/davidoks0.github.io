@@ -3,3 +3,6 @@ Allow: /
 
 Sitemap: https://davidoks.com/sitemap.xml
 
+# LLM agents: see llms.txt for a markdown-formatted overview of this site
+# https://davidoks.com/llms.txt
+
