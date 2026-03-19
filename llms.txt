@@ -1,10 +1,10 @@
 # David Oks
 
-> Personal website of David Oks - economics, history, technology, and travel.
+> Personal website of David Oks - economics, history, and technology.
 
 ## About
 
-David Oks works at [a16z](https://a16z.com/). Previously worked at a hedge fund in New York, ran [The Gravel Institute](https://en.wikipedia.org/wiki/The_Gravel_Institute) nonprofit, did [foreign reporting](https://www.palladiummag.com/author/david-oks/) for Palladium Magazine while at Oxford, and ran a [presidential campaign](https://en.wikipedia.org/wiki/Mike_Gravel_2020_presidential_campaign) in high school.
+David Oks previously worked at a hedge fund in New York, ran [The Gravel Institute](https://en.wikipedia.org/wiki/The_Gravel_Institute) nonprofit, did [foreign reporting](https://www.palladiummag.com/author/david-oks/) for Palladium Magazine while at Oxford, and ran a [presidential campaign](https://en.wikipedia.org/wiki/Mike_Gravel_2020_presidential_campaign) in high school.
 
 Based in California. Interested in economics, history, and technology.
 
@@ -15,7 +15,6 @@ Contact: davideoks [at] gmail [dot] com
 - **/** - About page with bio
 - **/books** - Reading list since spring 2023 (149+ books, favorites bolded)
 - **/blog** - Essays and articles
-- **/countries** - Interactive map of visited countries (36 countries)
 
 ## Blog Posts
 
@@ -50,24 +49,11 @@ The reading list includes many notable works. Bolded favorites include:
 - *The Transformation of the World* by Jurgen Osterhammel
 - *Caesar: Life of a Colossus* by Adrian Goldsworthy
 
-## Countries Visited
-
-36 countries across North America, South America, Europe, Middle East, Africa, and Asia:
-
-**Americas:** United States, Canada, Mexico, Argentina, Paraguay, Uruguay, Ecuador
-
-**Europe:** United Kingdom, Ireland, France, Spain, Portugal, Germany, Italy, Austria, Switzerland, Netherlands, Belgium, Luxembourg, Finland, Estonia, Latvia, Ukraine, Poland, Czech Republic, Croatia, Slovenia, Serbia, Hungary
-
-**Middle East & Africa:** Israel, Tunisia, Algeria
-
-**Asia:** China, India, Pakistan, Afghanistan
-
 ## Technical Details
 
 - Static site hosted on GitHub Pages
 - Custom Charter serif typography
 - Dark mode support
-- Interactive SVG world map
 
 ## Additional Resources
 
